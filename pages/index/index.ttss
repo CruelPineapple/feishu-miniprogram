@@ -1,0 +1,75 @@
+.page {
+ 
+  /* margin-left: 10rpx;
+   
+  margin-right: 10rpx; */
+   
+  background-color: rgb(243, 243, 243);
+  }
+   
+   
+  .swiper-tab {
+   
+  display: flex;
+   
+  flex-direction: row;
+   
+  line-height: 80rpx;
+  background-color: #fff;
+  /* position: fixed;
+  bottom: 0px;
+  width: 100%; */
+   
+  /* border-bottom: 2rpx solid rgb(255, 255, 255); */
+   
+  }
+   
+   
+  .tab-item {
+   
+  width: 33.3%;
+   
+  text-align: center;
+   
+  font-size: 15px;
+   
+  color: rgb(122, 122, 122);
+   
+  }
+   
+   
+  .swiper {
+   
+  height: 1100px;
+   
+  background: #ffffff;
+   
+  }
+   
+   
+  .on {
+   
+  color: rgba(0, 162, 255, 0.63);
+   
+  border-bottom: 5rpx solid rgba(0, 162, 255, 0.63);
+   
+  }
+
+  .lost-picker-title{
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.picker{
+  height: 40px;
+  line-height: 40px;
+  border-bottom: solid;
+  border-top: solid;
+  border-color: rgb(141, 141, 141);
+  border-width: 1px;
+  background-color: white;
+  margin-top: 10px;
+}
+.picker>text{
+  margin-left: 10px;
+}
