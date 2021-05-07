@@ -33,6 +33,33 @@ Page({
   onLoad: function () {
     console.log('Welcome to Mini Code')
   },
+  postLostConfirm: function(){
+    tt.showModal({
+      title: '您希望发布一个失物查询请求',
+      content: '目前您的失物还未被拾取，若稍后出现符合您填写特征的物品被拾到，我们将以消息的形式通知您',
+      success (res) {
+          if (res.confirm) {
+              console.log('confirm, continued');
+              tt.navigateTo({
+                url: `/pages/lost/index`,
+                success (res) {
+                    console.log(`${res}`);
+                },
+                fail (res) {
+                    console.log(`navigateTo 调用失败`);
+                }
+            });
+          } else if (res.cancel) {
+              console.log('cancel, cold')
+          } else {
+              // what happend?
+          }
+      },
+      fail (res) {
+          console.log(`showModal调用失败`);
+      }
+  });
+  },
   swichNav: function (e) {
  
     console.log(e);
