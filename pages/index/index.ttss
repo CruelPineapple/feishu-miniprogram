@@ -4,7 +4,7 @@
    
   margin-right: 10rpx; */
    
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(212, 212, 212);
   }
    
    
@@ -15,7 +15,7 @@
   flex-direction: row;
    
   line-height: 80rpx;
-  background-color: #fff;
+  background-color: #f7f7f7;
   /* position: fixed;
   bottom: 0px;
   width: 100%; */
@@ -42,7 +42,7 @@
    
   height: 1100px;
    
-  background: #ffffff;
+  background: #f7f7f7;
    
   }
    
@@ -56,8 +56,24 @@
   }
 
   .lost-picker-title{
-  margin-top: 15px;
+  padding-top: 15px;
   margin-left: 10px;
+  width: 100px;
+  margin-right: 30px;
+  display: inline-block;
+}
+
+
+
+.post-lost-btn{
+  display: inline-block;
+  width: 170px;
+  
+}
+
+.lost-picker-container{
+  padding-top: 10px;
+  background-color: #ffffff;
 }
 
 .picker{

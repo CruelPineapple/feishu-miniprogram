@@ -12,15 +12,16 @@
 		<swiper-item>
 			<view>
 				<view class="lost-picker-container">
-					<view class="lost-picker-title">失物查询</view>
+					<view class="lost-picker-title">失物查询</view><button bindtap="postLostConfirm" class="post-lost-btn" type="primary">发布失物查询</button>
 					<picker mode="multiSelector"
     				bindchange="bindMultiPickerChange"
     				bindcolumnchange="bindMultiPickerColumnChange"
     				value="{{multiIndex}}" range="{{multiArray}}">
-  				<view class="picker">
-						<text>当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}</text>
-  				</view>
-</picker>
+  						<view class="picker">
+							<text>当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}</text>
+  						</view>
+					</picker>
+					
 				</view>
 			</view> 
 		</swiper-item>
