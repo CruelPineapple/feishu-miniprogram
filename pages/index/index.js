@@ -131,7 +131,14 @@ Page({
     onLoad: function (options) {
      
     // 生命周期函数--监听页面加载
-     
+    tt.login({
+      success (res) {
+          console.log(`login 调用成功 ${res.code} `);
+      },
+      fail (res) {
+          console.log(`login 调用失败`);
+      }
+    });
     },
      
     onReady: function () {
