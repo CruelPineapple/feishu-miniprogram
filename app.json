@@ -17,17 +17,17 @@
       {
         "pagePath": "pages/index/index",
         "text": "寻找失物",
-        "iconPath": "./assets/lost2.svg"
+        "iconPath": "./assets/lost.png"
       },
       {
         "pagePath": "pages/found/found",
         "text": "发布招领",
-        "iconPath": "./assets/found2.svg"
+        "iconPath": "./assets/found.png"
       },
       {
         "pagePath": "pages/me/me",
         "text": "我的",
-        "iconPath": "./assets/me2.svg"
+        "iconPath": "./assets/me.png"
       }
     ]
   }
