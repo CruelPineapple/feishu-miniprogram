@@ -12,7 +12,7 @@
 		<swiper-item>
 			<view>
 				<view class="lost-picker-container">
-					<view class="lost-picker-title">失物查询</view><button bindtap="postLostConfirm" class="post-lost-btn" type="primary">发布失物查询</button>
+					<view class="lost-picker-title">失物查询</view><button bindtap="postLostConfirm" class="post-lost-btn" type="primary">请求失物查询</button>
 					<picker mode="multiSelector"
     				bindchange="bindMultiPickerChange"
     				bindcolumnchange="bindMultiPickerColumnChange"
