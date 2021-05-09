@@ -35,7 +35,7 @@ Page({
   },
   postLostConfirm: function(){
     tt.showModal({
-      title: '您希望发布一个失物查询请求',
+      title: '您希望请求一个失物查询请求',
       content: '目前您的失物还未被拾取，若稍后出现符合您填写特征的物品被拾到，我们将以消息的形式通知您',
       success (res) {
           if (res.confirm) {
