@@ -11,23 +11,23 @@
   },
   "tabBar":{
     "color": "#8F959E",
-    "selectedColor": "#8F959E",
+    "selectedColor": "#3370FF",
     "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "寻找失物",
-        "iconPath": "./assets/lost.png"
+        "iconPath": "./assets/lost2.svg"
       },
       {
         "pagePath": "pages/found/found",
         "text": "发布招领",
-        "iconPath": "./assets/found.png"
+        "iconPath": "./assets/found2.svg"
       },
       {
         "pagePath": "pages/me/me",
         "text": "我的",
-        "iconPath": "./assets/me.png"
+        "iconPath": "./assets/me2.svg"
       }
     ]
   }
