@@ -1,11 +1,17 @@
+.page{
+    background-color: rgb(240, 240, 240);
+}
 .title-container{
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(230, 230, 230);
     padding: 20px;
 }
 .title-container>text{
     font-size: 14px;
 }
-.picker{
+.picker1-content{
+    margin-top: 15px;
+}
+.picker1{
     height: 40px;
     line-height: 40px;
     border-bottom: solid;

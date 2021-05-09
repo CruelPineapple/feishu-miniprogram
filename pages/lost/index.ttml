@@ -5,13 +5,34 @@
     </view>
     <view class="form">
         <picker 
+        class="picker1-content"
         mode="multiSelector"
-    	bindchange="bindMultiPickerChange"
-    	bindcolumnchange="bindMultiPickerColumnChange"
-    	value="{{multiIndex}}" range="{{multiArray}}">
-  			<view class="picker">
-				<text>物品种类：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}</text>
+    	bindchange="bindMultiPickerChange1"
+    	bindcolumnchange="bindMultiPickerColumnChange1"
+    	value="{{multiIndex1}}" range="{{multiArray1}}">
+            <p style="margin-left:15px">●物品种类</p>
+  			<view class="picker1">
+                <text style="margin-left:15px">当前选择：{{multiArray1[0][multiIndex1[0]]}}，{{multiArray1[1][multiIndex1[1]]}}</text>
   			</view>
 		</picker>
+        <picker 
+        class="picker1-content"
+        mode="multiSelector"
+    	bindchange="bindMultiPickerChange2"
+    	bindcolumnchange="bindMultiPickerColumnChange2"
+    	value="{{multiIndex2}}" range="{{multiArray2}}">
+            <p style="margin-left:15px">●可能遗失地点</p>
+  			<view class="picker1">
+                <text style="margin-left:15px">当前选择：{{multiArray2[0][multiIndex2[0]]}}，{{multiArray2[1][multiIndex2[1]]}}</text>
+  			</view>
+		</picker>
+        <picker class="picker1-content" mode="time" value="{{time}}" start="{{timeStart}}" end="{{timeEnd}}"
+        bindchange="bindTimeChange">
+            <p style="margin-left:15px">●丢失时间</p>
+            <view class="picker1">
+                <text style="margin-left:15px">当前选择: {{time}}</text>
+            </view>
+        </picker>
+
     </view>
 </view>
