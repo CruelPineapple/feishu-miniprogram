@@ -1,0 +1,17 @@
+.title-container{
+    background-color: rgb(235, 235, 235);
+    padding: 20px;
+}
+.title-container>text{
+    font-size: 14px;
+}
+.picker{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: solid;
+    border-top: solid;
+    border-color: rgb(141, 141, 141);
+    border-width: 1px;
+    background-color: white;
+    margin-top: 10px;
+  }

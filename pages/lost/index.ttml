@@ -1,3 +1,17 @@
 <view class="page">
-    <p>lost</p>
+    <view class="title-container">
+        <view class="title">失物查询</view>
+        <text>我们将按照您填写的物品特征持续检索被拾取的物品，出现符合条件的物品将以消息的形式进行通知</text>
+    </view>
+    <view class="form">
+        <picker 
+        mode="multiSelector"
+    	bindchange="bindMultiPickerChange"
+    	bindcolumnchange="bindMultiPickerColumnChange"
+    	value="{{multiIndex}}" range="{{multiArray}}">
+  			<view class="picker">
+				<text>物品种类：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}</text>
+  			</view>
+		</picker>
+    </view>
 </view>
