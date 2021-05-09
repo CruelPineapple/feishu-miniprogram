@@ -11,6 +11,7 @@
   				</view>
 			</picker>					
 		</view>
+		<button bindtap="getCode" type="primary">获取code</button>
 	</view> 
 
 

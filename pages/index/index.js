@@ -60,46 +60,27 @@ Page({
       }
   });
   },
-  swichNav: function (e) {
- 
-    console.log(e);
      
-    var that = this;
-     
-    if (this.data.currentTab === e.target.dataset.current) {
-     
-    return false;
-     
-    } else {
-     
-    that.setData({
-     
-    currentTab: e.target.dataset.current,
-     
-    })
-     
-    }
-     
-    },
-     
-    swiperChange: function (e) {
-     
-    console.log(e);
-     
+  getCode: function(){
+    tt.login({
+      success (res) {
+          console.log(`login 调用成功 ${res.code} `);
+          tt.showModal({
+            title: 'code',
+            content: res.code,
+          })
+      },
+      fail (res) {
+          console.log(`login 调用失败`);
+      }
+    });
+  },
+  
+  bindMultiPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-     
-    currentTab: e.detail.current,
-     
+        multiIndex: e.detail.value
     })
-     
-     
-    },
-    
-    bindMultiPickerChange: function (e) {
-      console.log('picker发送选择改变，携带值为', e.detail.value)
-      this.setData({
-          multiIndex: e.detail.value
-      })
   },
   bindMultiPickerColumnChange: function (e) {
       // return;
