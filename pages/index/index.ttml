@@ -1,22 +1,35 @@
 <view class="page">
 	<view>
 		<view class="lost-picker-container">
-			<view class="lost-picker-title">失物查询</view><button bindtap="postLostConfirm" class="post-lost-btn" type="primary">请求失物查询</button>
+			<view class="lost-picker-title">失物查询</view>
+			<view class="lost-picker-subtitle">可根据以下条件筛选查询</view>
+			<view class="picker-flex-container">
 			<picker mode="multiSelector"
+			class="picker-container"
     		bindchange="bindMultiPickerChange"
     		bindcolumnchange="bindMultiPickerColumnChange"
     		value="{{multiIndex}}" range="{{multiArray}}">
-  				<view class="picker">
-					<text>当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}</text>
-					<p style="border-color: #666 #fff #fff;
-	border-style: solid;
-	border-width: 4px;
-	position:absolute;
-	top:18px;"> </p>
+  				<view class="picker1">
+					<text>{{multiArray[1][multiIndex[1]]}}</text>
+					<p class="arrow"> </p>
   				</view>
-			</picker>					
+			</picker>
+				<picker mode="multiSelector"
+				class="picker-container2"
+    			bindchange="bindMultiPickerChange2"
+    			bindcolumnchange="bindMultiPickerColumnChange2"
+    			value="{{multiIndex2}}" range="{{multiArray2}}">
+  					<view class="picker2">
+						<text>{{multiArray2[0][multiIndex2[0]]}}{{multiArray2[1][multiIndex2[1]]}}</text>
+						<p class="arrow"> </p>
+  					</view>
+				</picker>				
+			</view>
+					
 		</view>
 		<button bindtap="getCode" type="primary">获取code</button>
+		<button bindtap="postLostConfirm" class="post-lost-btn" type="primary">请求失物查询</button>
+
 	</view> 
 
 
