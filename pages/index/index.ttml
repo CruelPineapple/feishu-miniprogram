@@ -27,6 +27,14 @@
 			</view>
 					
 		</view>
+		<view class="lost-list">
+			<view tt:for={{lost}} class="lost-container">
+				<image class="lost-img" src=item.Image[0]></image>
+				<p style="margin-top:8px" class="lost-info">物品种类：{{item.ItemType}}</p>
+				<p class="lost-info">遗失地点：{{item.SubPlace}}</p>
+				<p class="lost-info">找到时间：{{item.Date}}</p>
+			</view>
+		</view>
 		<button bindtap="getCode" type="primary">获取code</button>
 		<button bindtap="postLostConfirm" class="post-lost-btn" type="primary">请求失物查询</button>
 
