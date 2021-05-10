@@ -47,6 +47,14 @@ Page({
   ],
   multiIndex: [0, 0, 0],
   multiIndex2: [0, 0, 0],
+  lost: [
+    {
+      Image:[],
+      ItemType: '物品类型',
+      SubPlace: '遗失地点',
+      Date: '2021-5-10'
+    }
+  ]
   },
   onLoad: function () {
     console.log('Welcome to Mini Code')
