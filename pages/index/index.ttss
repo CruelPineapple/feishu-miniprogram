@@ -4,56 +4,9 @@
    
   margin-right: 10rpx; */
    
-  background-color: rgb(212, 212, 212);
+  /* background-color: rgb(212, 212, 212); */
   }
    
-   
-  .swiper-tab {
-   
-  display: flex;
-   
-  flex-direction: row;
-   
-  line-height: 80rpx;
-  background-color: #f7f7f7;
-  /* position: fixed;
-  bottom: 0px;
-  width: 100%; */
-   
-  /* border-bottom: 2rpx solid rgb(255, 255, 255); */
-   
-  }
-   
-   
-  .tab-item {
-   
-  width: 33.3%;
-   
-  text-align: center;
-   
-  font-size: 15px;
-   
-  color: rgb(122, 122, 122);
-   
-  }
-   
-   
-  .swiper {
-   
-  height: 1100px;
-   
-  background: #f7f7f7;
-   
-  }
-   
-   
-  .on {
-   
-  color: rgba(0, 162, 255, 0.63);
-   
-  border-bottom: 5rpx solid rgba(0, 162, 255, 0.63);
-   
-  }
 
   .lost-picker-title{
   padding-top: 15px;
@@ -63,20 +16,58 @@
   display: inline-block;
 }
 
-
-
-.post-lost-btn{
-  display: inline-block;
-  width: 170px;
-  
+.lost-picker-subtitle{
+  padding-top: 15px;
+  margin-left: 10px;
+  font-size: 14px;
 }
 
 .lost-picker-container{
+  background-color: #3370ff;
+  color: white;
+}
+
+.post-lost-btn{
+  /* display: inline-block; */
+  /* width: 170px; */
+  
+}
+
+.title-container{
   padding-top: 10px;
   background-color: #ffffff;
 }
 
-.picker{
+.picker-container{
+  width: 20%;
+  border-radius: 5px;
+}
+.picker-container2{
+  width: 50%;
+}
+
+.picker-flex-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #1f2329;
+}
+
+.picker1{
+  height: 40px;
+  line-height: 40px;
+  border-bottom: solid;
+  border-top: solid;
+  border-color: rgb(141, 141, 141);
+  border-width: 1px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: white;
+  margin-top: 10px;
+  text-align: center;
+  position: relative;
+}
+.picker2{
   height: 40px;
   line-height: 40px;
   border-bottom: solid;
@@ -85,8 +76,16 @@
   border-width: 1px;
   background-color: white;
   margin-top: 10px;
+  text-align: center;
   position: relative;
 }
-.picker>text{
-  margin-left: 10px;
+.arrow{
+  border-color: #666 #fff #fff;
+	border-style: solid;
+	border-width: 4px;
+	position:absolute;
+	top:18px;
 }
+/* .picker>text{
+
+} */
