@@ -85,6 +85,7 @@
   border-width: 1px;
   background-color: white;
   margin-top: 10px;
+  position: relative;
 }
 .picker>text{
   margin-left: 10px;
