@@ -45,7 +45,7 @@
   border-radius: 5px;
 }
 .picker-container2{
-  width: 50%;
+  width: 40%;
 }
 
 .picker-flex-container{

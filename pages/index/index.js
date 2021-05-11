@@ -42,12 +42,18 @@ Page({
       ['手机', '平板电脑', 'kindle', '笔记本电脑', '耳机','充电器','充电宝','数据线','手表','u盘','鼠标','键盘','触控笔','其他']
   ],
     multiArray2: [
-      ['第二教学楼', '第三教学楼'],
-      ['一层', '二层']
+      ['宿舍区', '教学区'],
+      ['校内14栋', '第二教学楼']
   ],
   multiIndex: [0, 0, 0],
   multiIndex2: [0, 0, 0],
   lost: [
+    {
+      Image:[],
+      ItemType: '物品类型',
+      SubPlace: '遗失地点',
+      Date: '2021-5-10'
+    },
     {
       Image:[],
       ItemType: '物品类型',
@@ -165,6 +171,10 @@ Page({
               break;
       }
       this.setData(data);
+    },
+
+    handleLostTab: function(e){
+      console.log(e.currentTarget.id);
     },
 
     onLoad: function (options) {

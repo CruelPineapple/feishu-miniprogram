@@ -20,7 +20,7 @@
     			bindcolumnchange="bindMultiPickerColumnChange2"
     			value="{{multiIndex2}}" range="{{multiArray2}}">
   					<view class="picker2">
-						<text>{{multiArray2[0][multiIndex2[0]]}}{{multiArray2[1][multiIndex2[1]]}}</text>
+						<text>{{multiArray2[1][multiIndex2[1]]}}</text>
 						<p class="arrow"> </p>
   					</view>
 				</picker>				
@@ -28,7 +28,7 @@
 					
 		</view>
 		<view class="lost-list">
-			<view tt:for={{lost}} class="lost-container">
+			<view bindtap="handleLostTab" id={{index}} tt:for={{lost}} class="lost-container">
 				<image class="lost-img" src=item.Image[0]></image>
 				<p style="margin-top:8px" class="lost-info">物品种类：{{item.ItemType}}</p>
 				<p class="lost-info">遗失地点：{{item.SubPlace}}</p>
