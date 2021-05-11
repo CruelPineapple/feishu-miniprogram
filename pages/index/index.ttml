@@ -2,6 +2,13 @@
 	<view>
 		<view class="lost-picker-container">
 			<view class="lost-picker-title">失物查询</view>
+			<picker value="{{index}}" range="{{array}}"
+    			class="picker-container0" bindchange="bindPickerChange" bindcancel="bindPickerCancel">
+  				<view class="picker0">
+    				{{array[index]}}
+					<p class="arrow0"> </p>
+  				</view>
+			</picker>
 			<view class="lost-picker-subtitle">可根据以下条件筛选查询</view>
 			<view class="picker-flex-container">
 			<picker mode="multiSelector"

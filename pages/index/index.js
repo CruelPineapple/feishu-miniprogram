@@ -45,6 +45,8 @@ Page({
       ['宿舍区', '教学区'],
       ['校内14栋', '校内16栋']
   ],
+  array: ['清水河校区', '沙河校区'],
+  index: 0,//校区picker
   multiIndex: [0, 0, 0],
   multiIndex2: [0, 0, 0],
   date: '2021-05-01',
@@ -117,7 +119,12 @@ Page({
       }
     });
   },
-  
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+        index: e.detail.value
+    })
+  },
   bindMultiPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
@@ -218,19 +225,23 @@ Page({
       },
       method: 'POST',
       success: (res) => {
-        console.log('get type list',res);
+        //console.log('get type list',res);
         if(res.data.code==200){
-          console.log(JSON.stringify(res.data.data));
+          //console.log(JSON.stringify(res.data.data));
           let row=res.data.data;
           let reg=/\\/g;
           let replaced=row.replace(reg,'');
-          console.log(replaced);
+          //console.log(replaced);
           console.log(eval('(' + replaced + ')'));
           let finalArr=eval('(' + replaced + ')');
           let dataArr=[];
           dataArr[0]=finalArr[0];
           dataArr[1]=finalArr[1][0];
           console.log(dataArr);
+          this.setData({
+            multiArray: dataArr
+          });
+          ms=finalArr;
         }
       }
     });
