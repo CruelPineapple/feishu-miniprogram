@@ -1,12 +1,19 @@
 .page{
-    background-color: rgb(240, 240, 240);
+    background-color: #EFF0F1;
 }
 .title-container{
-    background-color: rgb(230, 230, 230);
-    padding: 20px;
+    height: 92px;
+    color: white;
+    background: url(./assets/bg.png);
+}
+.title{
+    font-size: 24px;
+    padding-top: 16px;
+    margin-left: 12px;
 }
 .title-container>text{
-    font-size: 14px;
+    font-size: 16px;
+    margin-left: 12px;
 }
 .picker1-content{
     margin-top: 15px;
@@ -14,10 +21,17 @@
 .picker1{
     height: 40px;
     line-height: 40px;
-    border-bottom: solid;
-    border-top: solid;
-    border-color: rgb(141, 141, 141);
-    border-width: 1px;
+    width: 300px;
+    margin: 0 auto;
+    border-radius: 5px;
     background-color: white;
     margin-top: 10px;
+    position: relative;
+  }
+  .arrow{
+    border-color: #666 #fff #fff;
+      border-style: solid;
+      border-width: 5px;
+      position:absolute;
+      top:18px;
   }

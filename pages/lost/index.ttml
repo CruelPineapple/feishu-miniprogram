@@ -1,7 +1,7 @@
 <view class="page">
     <view class="title-container">
-        <view class="title">失物查询</view>
-        <text>我们将按照您填写的物品特征持续检索被拾取的物品，出现符合条件的物品将以消息的形式进行通知</text>
+        <view class="title">发布失物查询</view>
+        <text>若检测到符合条件的招领信息，将给您发送通知</text>
     </view>
     <view class="form">
         <picker 
@@ -13,6 +13,7 @@
             <p style="margin-left:15px">●物品种类</p>
   			<view class="picker1">
                 <text style="margin-left:15px">当前选择：{{multiArray1[0][multiIndex1[0]]}}，{{multiArray1[1][multiIndex1[1]]}}</text>
+                <p class="arrow"> </p>
   			</view>
 		</picker>
         <picker 
@@ -24,6 +25,7 @@
             <p style="margin-left:15px">●可能遗失地点</p>
   			<view class="picker1">
                 <text style="margin-left:15px">当前选择：{{multiArray2[0][multiIndex2[0]]}}，{{multiArray2[1][multiIndex2[1]]}}</text>
+                <p class="arrow"> </p>
   			</view>
 		</picker>
         <picker class="picker1-content" mode="time" value="{{time}}" start="{{timeStart}}" end="{{timeEnd}}"
@@ -31,6 +33,7 @@
             <p style="margin-left:15px">●丢失时间</p>
             <view class="picker1">
                 <text style="margin-left:15px">当前选择: {{time}}</text>
+                <p class="arrow"> </p>
             </view>
         </picker>
 
