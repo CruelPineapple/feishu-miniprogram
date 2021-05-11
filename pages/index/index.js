@@ -23,14 +23,14 @@ var ms = [
 
 var ms2 = [
   [// 0
-    '第二教学楼', '第三教学楼'
+    '宿舍区', '教学区'
   ],
   [// 1
       [// 1 0
-        '一层', '二层'
+        '校内14栋', '校内16栋'
       ],
       [// 1 1
-        '三层','四层'
+        '第二教学楼','第四教学楼'
       ],
   ],
 ];
@@ -43,10 +43,12 @@ Page({
   ],
     multiArray2: [
       ['宿舍区', '教学区'],
-      ['校内14栋', '第二教学楼']
+      ['校内14栋', '校内16栋']
   ],
   multiIndex: [0, 0, 0],
   multiIndex2: [0, 0, 0],
+  date: '2021-05-01',
+  dateShow: '05-01',
   lost: [
     {
       Image:[],
@@ -61,6 +63,14 @@ Page({
       Date: '2021-5-10'
     }
   ]
+  },
+  bindDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    let myDate=String(e.detail.value).substr(5)
+    this.setData({
+        date: e.detail.value,
+        dateShow: myDate
+    })
   },
   onLoad: function () {
     console.log('Welcome to Mini Code')

@@ -23,7 +23,13 @@
 						<text>{{multiArray2[1][multiIndex2[1]]}}</text>
 						<p class="arrow"> </p>
   					</view>
-				</picker>				
+				</picker>	
+				<picker class="picker-container3" mode="date" value="{{date}}" start="2021-01-01" end="2022-09-01"
+    				bindchange="bindDateChange" fields="day">
+  					<view class="picker3">
+    					 {{dateShow}}<p class="arrow"> </p>
+  					</view>
+				</picker>			
 			</view>
 					
 		</view>
