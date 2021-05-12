@@ -1,5 +1,6 @@
 .page{
     background-color: #EFF0F1;
+    padding-bottom: 24px;
 }
 .title-container{
     height: 92px;
@@ -18,7 +19,26 @@
 .picker1-content{
     margin-top: 15px;
 }
+.radio-group{
+    font-size: 16px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-around;
+}
+.page-cell{
+    display: flex;
+    justify-content: center;
+}
+.page-cell__hd{
+    height: 26px;
+    display: inline-block;
+}
+.page-cell__bd{
+    display: inline-block;
+    line-height: 26px;
+}
 .picker1{
+    font-size: 16px;
     height: 40px;
     line-height: 40px;
     width: 300px;
@@ -34,4 +54,10 @@
       border-width: 5px;
       position:absolute;
       top:18px;
+      right: 24px;
+  }
+  .submit-btn{
+      width: 172px;
+      margin: 0 auto;
+      margin-top: 24px;
   }
