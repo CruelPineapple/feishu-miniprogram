@@ -195,7 +195,7 @@ Page({
     },
 
     onLoad: function (options) {
-     
+      let myThis=this;
     // 生命周期函数--监听页面加载
     tt.login({
       success (res) {
@@ -213,39 +213,40 @@ Page({
               console.log(res);
             }
           });
+          tt.request({
+            //获取物品列表
+            url: 'https://www.fengzigeng.com/api/miniapp/gettypes', // 目标服务器url
+            header:{
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'POST',
+            success: (res) => {
+              //console.log('get type list',res);
+              if(res.data.code==200){
+                //console.log(JSON.stringify(res.data.data));
+                let row=res.data.data;
+                let reg=/\\/g;
+                let replaced=row.replace(reg,'');
+                //console.log(replaced);
+                console.log(eval('(' + replaced + ')'));
+                let finalArr=eval('(' + replaced + ')');
+                let dataArr=[];
+                dataArr[0]=finalArr[0];
+                dataArr[1]=finalArr[1][0];
+                console.log(dataArr);
+                myThis.setData({
+                  multiArray: dataArr
+                });
+                ms=finalArr;
+                console.log('multiarr',myThis.data.multiArray);
+              }
+            }
+          });
       },
       fail (res) {
           console.log(`login 调用失败`);
       }
     });
-    tt.request({
-      url: 'https://www.fengzigeng.com/api/miniapp/gettypes', // 目标服务器url
-      header:{
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      method: 'POST',
-      success: (res) => {
-        //console.log('get type list',res);
-        if(res.data.code==200){
-          //console.log(JSON.stringify(res.data.data));
-          let row=res.data.data;
-          let reg=/\\/g;
-          let replaced=row.replace(reg,'');
-          //console.log(replaced);
-          console.log(eval('(' + replaced + ')'));
-          let finalArr=eval('(' + replaced + ')');
-          let dataArr=[];
-          dataArr[0]=finalArr[0];
-          dataArr[1]=finalArr[1][0];
-          console.log(dataArr);
-          this.setData({
-            multiArray: dataArr
-          });
-          ms=finalArr;
-        }
-      }
-    });
-
     },
      
     onReady: function () {
