@@ -192,6 +192,18 @@ Page({
 
     handleLostTab: function(e){
       console.log(e.currentTarget.id);
+      let app = getApp();
+      app.lostInfo=this.data.lost[e.currentTarget.id];
+      console.log('global',app.lostInfo);
+      tt.navigateTo({
+        url: `/pages/lostinfo/lostinfo`,
+        success (res) {
+            console.log(`${res}`);
+        },
+        fail (res) {
+            console.log(`navigateTo 调用失败`);
+        }
+      });
     },
 
     onLoad: function (options) {
@@ -240,6 +252,19 @@ Page({
                 ms=finalArr;
                 console.log('multiarr',myThis.data.multiArray);
               }
+            }
+          });
+          tt.request({
+            url: 'https://www.fengzigeng.com/api/miniapp/getfound', // 目标服务器url
+            header:{
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'POST',
+            success: (res) => {
+              console.log(res.data);
+              myThis.setData({
+                lost: res.data.data
+              })
             }
           });
       },
