@@ -1,7 +1,9 @@
 {
   "pages":[
+    "pages/index/index",
     "pages/lost/index",
-    "pages/index/index"
+    "pages/found/found",
+    "pages/me/me"
   ],
   "window":{
     "backgroundTextStyle":"light",
