@@ -317,9 +317,13 @@ var ms4 = [
             dataArr[1]=finalArr[1][0];
             console.log(dataArr);
             myThis.setData({
-              multiArray2: dataArr
+              multiArray2: dataArr,
+              multiArray3: dataArr,
+              multiArray4: dataArr,
             });
             ms2=finalArr;
+            ms3=finalArr;
+            ms4=finalArr;
             console.log('multiarr',myThis.data.multiArray1);
           }
         }

@@ -45,7 +45,7 @@
     	bindcolumnchange="bindMultiPickerColumnChange3"
     	value="{{multiIndex3}}" range="{{multiArray3}}">
   			<view class="picker1">
-                <text style="margin-left:15px">{{multiArray3[0][multiIndex3[0]]}}{{multiArray3[1][multiIndex3[1]]}}</text>
+                <text style="margin-left:15px">（可选）{{multiArray3[0][multiIndex3[0]]}}，{{multiArray3[1][multiIndex3[1]]}}</text>
                 <p class="arrow"> </p>
   			</view>
 		</picker>
@@ -57,7 +57,7 @@
     	bindcolumnchange="bindMultiPickerColumnChange4"
     	value="{{multiIndex4}}" range="{{multiArray4}}">
   			<view class="picker1">
-                <text style="margin-left:15px">{{multiArray4[0][multiIndex4[0]]}}{{multiArray4[1][multiIndex4[1]]}}</text>
+                <text style="margin-left:15px">（可选）{{multiArray4[0][multiIndex4[0]]}}，{{multiArray4[1][multiIndex4[1]]}}</text>
                 <p class="arrow"> </p>
   			</view>
 		</picker>
