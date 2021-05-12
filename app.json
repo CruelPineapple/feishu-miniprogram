@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/lost/index",
     "pages/found/found",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/lostinfo/lostinfo"
   ],
   "window":{
     "backgroundTextStyle":"light",
