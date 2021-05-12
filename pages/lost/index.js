@@ -98,7 +98,7 @@ var ms4 = [
     timeEnd: '23:59'
     },
     onLoad: function () {
-      console.log('Welcome to Mini Code')
+      console.log('Welcome to Mini Code');
     },
     bindDateChange: function (e) {
       console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -260,8 +260,72 @@ var ms4 = [
       },
   
       onLoad: function (options) {
-       
+        let myThis=this;
       // 生命周期函数--监听页面加载
+      tt.request({
+        //获取物品列表
+        url: 'https://www.fengzigeng.com/api/miniapp/gettypes', // 目标服务器url
+        header:{
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        method: 'POST',
+        success: (res) => {
+          //console.log('get type list',res);
+          if(res.data.code==200){
+            //console.log(JSON.stringify(res.data.data));
+            let row=res.data.data;
+            let reg=/\\/g;
+            let replaced=row.replace(reg,'');
+            //console.log(replaced);
+            console.log(eval('(' + replaced + ')'));
+            let finalArr=eval('(' + replaced + ')');
+            let dataArr=[];
+            dataArr[0]=finalArr[0];
+            dataArr[1]=finalArr[1][0];
+            console.log(dataArr);
+            myThis.setData({
+              multiArray1: dataArr
+            });
+            ms1=finalArr;
+            console.log('multiarr',myThis.data.multiArray1);
+          }
+        }
+      });
+
+      tt.request({
+        //获取地点列表
+        url: 'https://www.fengzigeng.com/api/miniapp/getplaces', // 目标服务器url
+        header:{
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data:{
+          'campus_id':'1'
+        },
+        method: 'POST',
+        success: (res) => {
+          //console.log('get type list',res);
+          if(res.data.code==200){
+            //console.log(JSON.stringify(res.data.data));
+            let row=res.data.data;
+            let reg=/\\/g;
+            let replaced=row.replace(reg,'');
+            //console.log(replaced);
+            console.log(eval('(' + replaced + ')'));
+            let finalArr=eval('(' + replaced + ')');
+            let dataArr=[];
+            dataArr[0]=finalArr[0];
+            dataArr[1]=finalArr[1][0];
+            console.log(dataArr);
+            myThis.setData({
+              multiArray2: dataArr
+            });
+            ms2=finalArr;
+            console.log('multiarr',myThis.data.multiArray1);
+          }
+        }
+      });
+
+
        
       },
        
