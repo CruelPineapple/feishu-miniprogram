@@ -40,6 +40,8 @@
   			</view>
 		</picker>
         <input class="input" placeholder="详细描述" bindinput="handelPlaceDetail"></input>
+        <p style="margin-left:15px;font-size:16px">●相关图片</p>
+        
         <!-- <picker 
         class="picker1-content"
         mode="multiSelector"
@@ -63,7 +65,7 @@
                 <p class="arrow"> </p>
   			</view>
 		</picker> -->
-        <p style="margin-left:15px;font-size:16px">●丢失时间</p>
+        <!-- <p style="margin-left:15px;font-size:16px">●丢失时间</p>
         <picker class="picker-container3" mode="date" value="{{date}}" start="2021-01-01" end="2022-09-01"
     		bindchange="bindDateChange" fields="day">
   			<view class="picker1">
@@ -75,7 +77,7 @@
             <view class="picker1">
             <text style="margin-left:15px">时间段（可选）：{{array[index]}}</text><p class="arrow"> </p>
             </view>
-        </picker>
+        </picker> -->
         <button class="submit-btn" bindtap="submit" type="primary">提交</button>
     </view>
 </view>

@@ -114,20 +114,20 @@ var ms4 = [
             placeDetail: e.detail.value
         });
     },
-    bindDateChange: function (e) {
-      console.log('picker发送选择改变，携带值为', e.detail.value)
-      let myDate=String(e.detail.value).substr(5)
-      this.setData({
-          date: e.detail.value,
-          dateShow: myDate
-      })
-    },
-    bindPickerChange: function (e) {
-      console.log('picker发送选择改变，携带值为', e.detail.value)
-      this.setData({
-          index: e.detail.value
-      })
-    },
+    // bindDateChange: function (e) {
+    //   console.log('picker发送选择改变，携带值为', e.detail.value)
+    //   let myDate=String(e.detail.value).substr(5)
+    //   this.setData({
+    //       date: e.detail.value,
+    //       dateShow: myDate
+    //   })
+    // },
+    // bindPickerChange: function (e) {
+    //   console.log('picker发送选择改变，携带值为', e.detail.value)
+    //   this.setData({
+    //       index: e.detail.value
+    //   })
+    // },
     radioChange: function(e) {
       console.log('Radio 发生 change 事件，value 值为：', e.detail.value)
       var items = this.data.items;
@@ -176,12 +176,12 @@ var ms4 = [
         }
       });
     },
-    bindTimeChange: function (e) {
-      console.log('time picker发送选择改变，携带值为', e.detail.value)
-      this.setData({
-          time: e.detail.value
-      })
-    },      
+    // bindTimeChange: function (e) {
+    //   console.log('time picker发送选择改变，携带值为', e.detail.value)
+    //   this.setData({
+    //       time: e.detail.value
+    //   })
+    // },      
     bindMultiPickerChange1: function (e) {
         console.log('picker1发送选择改变，携带值为', e.detail.value)
         this.setData({
@@ -194,18 +194,18 @@ var ms4 = [
             multiIndex2: e.detail.value
         })
     },
-    bindMultiPickerChange3: function (e) {
-        console.log('picker3发送选择改变，携带值为', e.detail.value)
-        this.setData({
-            multiIndex3: e.detail.value
-        })
-    },
-    bindMultiPickerChange4: function (e) {
-        console.log('picker4发送选择改变，携带值为', e.detail.value)
-        this.setData({
-            multiIndex4: e.detail.value
-        })
-    },
+    // bindMultiPickerChange3: function (e) {
+    //     console.log('picker3发送选择改变，携带值为', e.detail.value)
+    //     this.setData({
+    //         multiIndex3: e.detail.value
+    //     })
+    // },
+    // bindMultiPickerChange4: function (e) {
+    //     console.log('picker4发送选择改变，携带值为', e.detail.value)
+    //     this.setData({
+    //         multiIndex4: e.detail.value
+    //     })
+    // },
     bindMultiPickerColumnChange1: function (e) {
         // return;
         console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
@@ -258,58 +258,58 @@ var ms4 = [
         }
         this.setData(data);
       },
-    bindMultiPickerColumnChange3: function (e) {
-        // return;
-        console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
-        var data = {
-            multiArray3: this.data.multiArray3,
-            multiIndex3: this.data.multiIndex3
-        };
-        switch (e.detail.column) {
-            case 0:
-                data.multiIndex3[0] = e.detail.value;
-                data.multiIndex3[1] = 0;
-                data.multiIndex3[2] = 0;
-                data.multiArray3[1] = ms3[1][data.multiIndex3[0]];
-                // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
-                break;
-            case 1:
-                data.multiIndex3[1] = e.detail.value;
-                data.multiIndex3[2] = 0;
-                // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
-                break;
-            case 2:
-                // data.multiIndex[2] = e.detail.value;
-                break;
-        }
-        this.setData(data);
-      },
-    bindMultiPickerColumnChange4: function (e) {
-        // return;
-        console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
-        var data = {
-            multiArray4: this.data.multiArray4,
-            multiIndex4: this.data.multiIndex4
-        };
-        switch (e.detail.column) {
-            case 0:
-                data.multiIndex4[0] = e.detail.value;
-                data.multiIndex4[1] = 0;
-                data.multiIndex4[2] = 0;
-                data.multiArray4[1] = ms4[1][data.multiIndex4[0]];
-                // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
-                break;
-            case 1:
-                data.multiIndex4[1] = e.detail.value;
-                data.multiIndex4[2] = 0;
-                // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
-                break;
-            case 2:
-                // data.multiIndex[2] = e.detail.value;
-                break;
-        }
-        this.setData(data);
-      },
+    // bindMultiPickerColumnChange3: function (e) {
+    //     // return;
+    //     console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
+    //     var data = {
+    //         multiArray3: this.data.multiArray3,
+    //         multiIndex3: this.data.multiIndex3
+    //     };
+    //     switch (e.detail.column) {
+    //         case 0:
+    //             data.multiIndex3[0] = e.detail.value;
+    //             data.multiIndex3[1] = 0;
+    //             data.multiIndex3[2] = 0;
+    //             data.multiArray3[1] = ms3[1][data.multiIndex3[0]];
+    //             // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
+    //             break;
+    //         case 1:
+    //             data.multiIndex3[1] = e.detail.value;
+    //             data.multiIndex3[2] = 0;
+    //             // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
+    //             break;
+    //         case 2:
+    //             // data.multiIndex[2] = e.detail.value;
+    //             break;
+    //     }
+    //     this.setData(data);
+    //   },
+    // bindMultiPickerColumnChange4: function (e) {
+    //     // return;
+    //     console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
+    //     var data = {
+    //         multiArray4: this.data.multiArray4,
+    //         multiIndex4: this.data.multiIndex4
+    //     };
+    //     switch (e.detail.column) {
+    //         case 0:
+    //             data.multiIndex4[0] = e.detail.value;
+    //             data.multiIndex4[1] = 0;
+    //             data.multiIndex4[2] = 0;
+    //             data.multiArray4[1] = ms4[1][data.multiIndex4[0]];
+    //             // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
+    //             break;
+    //         case 1:
+    //             data.multiIndex4[1] = e.detail.value;
+    //             data.multiIndex4[2] = 0;
+    //             // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
+    //             break;
+    //         case 2:
+    //             // data.multiIndex[2] = e.detail.value;
+    //             break;
+    //     }
+    //     this.setData(data);
+    //   },
   
       onLoad: function (options) {
         let myThis=this;
