@@ -42,7 +42,7 @@
 		</view>
 		<view class="lost-list">
 			<view bindtap="handleLostTab" id={{index}} tt:for={{lost}} class="lost-container">
-				<image class="lost-img" src={{item.Image}}></image>
+				<image class="lost-img" src={{item.Image}} mode="aspectFill"></image>
 				<p style="margin-top:8px" class="lost-info">物品种类：{{item.SubType}}</p>
 				<p class="lost-info">遗失地点：{{item.Place}}</p>
 				<p class="lost-info">找到时间：{{item.FoundDate}}</p>
