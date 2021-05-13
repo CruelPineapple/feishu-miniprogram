@@ -1,0 +1,79 @@
+<view class="page">
+    <view class="title-container">
+        <view class="title">发布招领信息</view>
+        <text>感谢您的热心帮助，请填写以下表单，我们将和您一起找到失主</text>
+    </view>
+        <view class="form">
+        <picker
+        style="margin-bottom:12px" 
+        class="picker1-content"
+        mode="multiSelector"
+    	bindchange="bindMultiPickerChange1"
+    	bindcolumnchange="bindMultiPickerColumnChange1"
+    	value="{{multiIndex1}}" range="{{multiArray1}}">
+            <p style="margin-left:15px;font-size:16px">●物品种类</p>
+  			<view class="picker1">
+                <text style="margin-left:15px">{{multiArray1[1][multiIndex1[1]]}}</text>
+                <p class="arrow"> </p>
+  			</view>
+		</picker>
+        <p style="margin-left:15px;margin-top:12px;font-size:16px">●可能遗失地点</p>
+        <radio-group class="radio-group" bindchange="radioChange">
+            <label class="page-cell page-check__label" tt:for="{{items}}" tt:key="{{item.value}}">
+                <view class="page-cell__hd">
+                <radio value="{{item.value}}"
+                    checked="{{item.checked}}"/>
+                </view>
+                <view class="page-cell__bd">{{item.name}}</view>
+            </label>
+        </radio-group>
+        <picker 
+        class="picker1-content"
+        mode="multiSelector"
+    	bindchange="bindMultiPickerChange2"
+    	bindcolumnchange="bindMultiPickerColumnChange2"
+    	value="{{multiIndex2}}" range="{{multiArray2}}">
+  			<view class="picker1">
+                <text style="margin-left:15px">{{multiArray2[0][multiIndex2[0]]}}，{{multiArray2[1][multiIndex2[1]]}}</text>
+                <p class="arrow"> </p>
+  			</view>
+		</picker>
+        <picker 
+        class="picker1-content"
+        mode="multiSelector"
+    	bindchange="bindMultiPickerChange3"
+    	bindcolumnchange="bindMultiPickerColumnChange3"
+    	value="{{multiIndex3}}" range="{{multiArray3}}">
+  			<view class="picker1">
+                <text style="margin-left:15px">（可选）{{multiArray3[0][multiIndex3[0]]}}，{{multiArray3[1][multiIndex3[1]]}}</text>
+                <p class="arrow"> </p>
+  			</view>
+		</picker>
+        <picker 
+        style="margin-bottom:12px"
+        class="picker1-content"
+        mode="multiSelector"
+    	bindchange="bindMultiPickerChange4"
+    	bindcolumnchange="bindMultiPickerColumnChange4"
+    	value="{{multiIndex4}}" range="{{multiArray4}}">
+  			<view class="picker1">
+                <text style="margin-left:15px">（可选）{{multiArray4[0][multiIndex4[0]]}}，{{multiArray4[1][multiIndex4[1]]}}</text>
+                <p class="arrow"> </p>
+  			</view>
+		</picker>
+        <p style="margin-left:15px;font-size:16px">●丢失时间</p>
+        <picker class="picker-container3" mode="date" value="{{date}}" start="2021-01-01" end="2022-09-01"
+    		bindchange="bindDateChange" fields="day">
+  			<view class="picker1">
+    			<text style="margin-left:15px">日期：{{date}}</text><p class="arrow"> </p>
+  			</view>
+		</picker>
+        <picker value="{{index}}" range="{{array}}"
+            bindchange="bindPickerChange">
+            <view class="picker1">
+            <text style="margin-left:15px">时间段（可选）：{{array[index]}}</text><p class="arrow"> </p>
+            </view>
+        </picker>
+        <button class="submit-btn" bindtap="submit" type="primary">提交</button>
+    </view>
+</view>
