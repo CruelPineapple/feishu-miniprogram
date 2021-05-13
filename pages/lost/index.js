@@ -69,6 +69,7 @@ var ms4 = [
         {value: '0', name: '清水河校区'},
         {value: '1', name: '沙河校区', checked: 'true'}
       ],
+      ratioVal: 1,
       multiArray1: [
         ['电子设备', '证件','个人物品','学习用品','全部物品'],
         ['手机', '平板电脑', 'kindle', '笔记本电脑', '耳机','充电器','充电宝','数据线','手表','u盘','鼠标','键盘','触控笔','其他']
@@ -121,7 +122,45 @@ var ms4 = [
         items[i].checked = items[i].value === e.detail.value
       }
       this.setData({
-        items: items
+        items: items,
+        redioVal: e.detail.value
+      });
+      let myThis=this;
+      tt.request({
+        //获取地点列表
+        url: 'https://www.fengzigeng.com/api/miniapp/getplaces', // 目标服务器url
+        header:{
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data:{
+          'campus_id': e.detail.value
+        },
+        method: 'POST',
+        success: (res) => {
+          //console.log('get type list',res);
+          if(res.data.code==200){
+            //console.log(JSON.stringify(res.data.data));
+            let row=res.data.data;
+            let reg=/\\/g;
+            let replaced=row.replace(reg,'');
+            //console.log(replaced);
+            console.log(eval('(' + replaced + ')'));
+            let finalArr=eval('(' + replaced + ')');
+            let dataArr=[];
+            dataArr[0]=finalArr[0];
+            dataArr[1]=finalArr[1][0];
+            console.log(dataArr);
+            myThis.setData({
+              multiArray2: dataArr,
+              multiArray3: dataArr,
+              multiArray4: dataArr,
+            });
+            ms2=finalArr;
+            ms3=finalArr;
+            ms4=finalArr;
+            console.log('multiarr',myThis.data.multiArray1);
+          }
+        }
       });
     },
     bindTimeChange: function (e) {
