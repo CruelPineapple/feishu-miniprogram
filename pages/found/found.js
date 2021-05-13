@@ -96,10 +96,23 @@ var ms4 = [
     dateShow: '05-01',
     time: '12:01',
     timeStart: '00:00',
-    timeEnd: '23:59'
+    timeEnd: '23:59',
+    typeDetail: "",
+    placeDetail: "",
     },
     onLoad: function () {
       console.log('Welcome to Mini Code');
+    },
+    handelTypeDetail: function(e){
+        console.log(e.detail.value);
+        this.setData({
+            typeDetail: e.detail.value
+        });
+    },
+    handelPlaceDetail: function(e){
+        this.setData({
+            placeDetail: e.detail.value
+        });
     },
     bindDateChange: function (e) {
       console.log('picker发送选择改变，携带值为', e.detail.value)

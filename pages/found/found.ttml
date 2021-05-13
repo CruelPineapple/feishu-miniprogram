@@ -17,7 +17,8 @@
                 <p class="arrow"> </p>
   			</view>
 		</picker>
-        <p style="margin-left:15px;margin-top:12px;font-size:16px">●可能遗失地点</p>
+        <input class="input" placeholder="详细描述" bindinput="handelTypeDetail"></input>
+        <p style="margin-left:15px;margin-top:12px;font-size:16px">●拾取地点</p>
         <radio-group class="radio-group" bindchange="radioChange">
             <label class="page-cell page-check__label" tt:for="{{items}}" tt:key="{{item.value}}">
                 <view class="page-cell__hd">
@@ -38,7 +39,8 @@
                 <p class="arrow"> </p>
   			</view>
 		</picker>
-        <picker 
+        <input class="input" placeholder="详细描述" bindinput="handelPlaceDetail"></input>
+        <!-- <picker 
         class="picker1-content"
         mode="multiSelector"
     	bindchange="bindMultiPickerChange3"
@@ -60,7 +62,7 @@
                 <text style="margin-left:15px">（可选）{{multiArray4[0][multiIndex4[0]]}}，{{multiArray4[1][multiIndex4[1]]}}</text>
                 <p class="arrow"> </p>
   			</view>
-		</picker>
+		</picker> -->
         <p style="margin-left:15px;font-size:16px">●丢失时间</p>
         <picker class="picker-container3" mode="date" value="{{date}}" start="2021-01-01" end="2022-09-01"
     		bindchange="bindDateChange" fields="day">
