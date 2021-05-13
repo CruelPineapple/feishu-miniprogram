@@ -1,5 +1,18 @@
 <view class="page">
     <view>
-        
+        <view class="pic-container">
+            <image class="lost-img" src={{lostInfo.Image}} mode="aspectFill"></image>
+        </view>
+        <view class="detail-info">
+            <view>物品种类</view>
+            <view>{{lostInfo.SubType}}</view>
+            <view>找到时间</view>
+            <view>{{lostInfo.FoundDate}} {{lostInfo.FoundTime}}</view>
+            <view>遗失地点</view>
+            <view>{{lostInfo.Place}}</view>
+            <view>详细描述</view>
+            <view>{{lostInfo.Info}}</view>
+        </view>
+        <button class="btn" type="primary" bindtap="handleRequestPosition">申请查看位置</button>
     </view>
 </view>
