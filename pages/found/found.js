@@ -99,9 +99,43 @@ var ms4 = [
     timeEnd: '23:59',
     typeDetail: "",
     placeDetail: "",
+    imgPreview:[],
     },
     onLoad: function () {
       console.log('Welcome to Mini Code');
+    },
+    handleDelImg: function(e){
+      console.log(e.target.id)
+    },
+    handleUpload: function(){
+      let myThis=this;
+      tt.chooseImage({
+        sourceType: ['album'],
+        count:1,
+        sizeType: ['original', 'compressed'],
+        success: (res) => {
+          console.log(res.tempFilePaths);
+          let arr=myThis.data.imgPreview;
+          if(arr.length < 3){
+            arr.push(res.tempFilePaths);
+            myThis.setData({
+              imgPreview: arr
+            })
+          }else{
+            tt.showToast({
+              title: '最多添加三张图片',
+              icon: 'none',
+              duration: 2000,
+              success (res) {
+                  console.log(`${res}`);
+              },
+              fail (res) {
+                  console.log(`showToast 调用失败`);
+              }
+          });
+          }
+        }
+      });
     },
     handelTypeDetail: function(e){
         console.log(e.detail.value);

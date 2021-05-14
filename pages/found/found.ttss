@@ -75,3 +75,14 @@
       margin: 0 auto;
       margin-top: 24px;
   }
+.img-preview{
+    width: 100%;
+    margin-top: 12px;
+    text-align: center;
+}
+.img-preview > image{
+    margin: 0 auto;
+    width: 180px;
+    height: 120px;
+    display: block;
+}
