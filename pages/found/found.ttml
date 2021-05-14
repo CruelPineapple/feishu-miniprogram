@@ -45,6 +45,8 @@
         <view class="img-preview">
             <image mode="aspectFill" bindtap="handleDelImg" tt:for="{{imgPreview}}" src="{{item}}" id={{index}}></image>
         </view>
+        <p style="margin-left:15px;font-size:16px">●身份信息</p>
+        <input class="input" placeholder="（可选）失主姓名" bindinput="handelIdentify"></input>
         <!-- <picker 
         class="picker1-content"
         mode="multiSelector"

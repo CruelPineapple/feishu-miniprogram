@@ -100,12 +100,36 @@ var ms4 = [
     typeDetail: "",
     placeDetail: "",
     imgPreview:[],
+    identify: "",
     },
     onLoad: function () {
       console.log('Welcome to Mini Code');
     },
     handleDelImg: function(e){
-      console.log(e.target.id)
+      console.log(e.target.id);
+      let arr = this.data.imgPreview;
+      let myThis=this;
+      tt.showModal({
+        title: '提示',
+        content: '删除这张图片？',
+        success (res) {
+            if (res.confirm) {
+                arr.splice(e.target.id,1);
+                myThis.setData({
+                  imgPreview:arr
+                })
+            } else if (res.cancel) {
+                console.log('cancel, cold')
+            } else {
+                // what happend?
+            }
+        },
+        fail (res) {
+            console.log(`showModal调用失败`);
+        }
+      });
+      
+      
     },
     handleUpload: function(){
       let myThis=this;
@@ -135,6 +159,11 @@ var ms4 = [
           });
           }
         }
+      });
+    },
+    handelIdentify: function(e){
+      this.setData({
+        identify: e.detail.value
       });
     },
     handelTypeDetail: function(e){
