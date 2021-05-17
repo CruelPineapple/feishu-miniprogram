@@ -69,7 +69,13 @@ var ms4 = [
         {value: '0', name: '清水河校区'},
         {value: '1', name: '沙河校区', checked: 'true'}
       ],
+      items2: [
+        {value: '0', name: '留在原地', checked: 'true'},
+        {value: '1', name: '自行带走'},
+        {value: '2', name: '放在别处'}
+      ],
       ratioVal: 1,
+      ratioVal2: 0,
       multiArray1: [
         ['电子设备', '证件','个人物品','学习用品','全部物品'],
         ['手机', '平板电脑', 'kindle', '笔记本电脑', '耳机','充电器','充电宝','数据线','手表','u盘','鼠标','键盘','触控笔','其他']
@@ -78,20 +84,10 @@ var ms4 = [
         ['宿舍区', '教学区'],
         ['14栋', '16栋']
     ],
-      multiArray3: [
-        ['可选','宿舍区', '教学区'],
-        []
-    ],
-      multiArray4: [
-        ['可选','宿舍区', '教学区'],
-        []
-    ],
     array: ['上午', '下午', '晚上'],
     index: 0,
-    multiIndex1: [0, 0, 0],
-    multiIndex2: [0, 0, 0],
-    multiIndex3: [0, 0, 0],
-    multiIndex4: [0, 0, 0],
+    multiIndex1: [0, 0],
+    multiIndex2: [0, 0],
     date: '2021-05-01',
     dateShow: '05-01',
     time: '12:01',
@@ -101,9 +97,99 @@ var ms4 = [
     placeDetail: "",
     imgPreview:[],
     identify: "",
+    otherPlace: "",
+    more:""
     },
-    onLoad: function () {
-      console.log('Welcome to Mini Code');
+    myAlert: function(msg){
+      tt.showModal({
+        title:'提示',
+        content: msg,
+        showCancel: false,
+        success: (res) => {
+          
+        }
+      });
+    },
+    submit: function(){
+      let upForm={
+        'type_index':this.data.multiIndex1,
+        'place_index':this.data.multiIndex2,
+        'campus_id':this.data.ratioVal,
+        'current_place':this.data.ratioVal2
+      }
+      if(this.data.typeDetail==""){
+        this.myAlert('尚未填写物品详情');
+        return;
+      }
+      if(this.data.placeDetail==""){
+        this.myAlert('尚未填写地点详情');
+        return;
+      }
+      if(this.data.imgPreview.length==0){
+        this.myAlert('尚未上传图片');
+        return;
+      }
+      if(this.data.ratioVal2==2&&this.data.otherPlace==""){
+        this.myAlert('尚未填写放置地点');
+        return;
+      }
+      upForm['info']=this.data.typeDetail;
+      upForm['place_detail']=this.data.placeDetail;
+      if(this.data.ratioVal2==2){
+        upForm['current_place_detail']=this.data.otherPlace
+      }
+      if(this.data.identify!=""){
+        upForm['loster_info']=this.data.identify;
+      }
+      if(this.data.more!=""){
+        upForm['additional_info']=this.data.more;
+      }
+      let imgArr=[];
+      let myThis=this;
+      console.log(this.data.imgPreview)
+      for(let i=0;i<myThis.data.imgPreview.length;i++){
+        tt.uploadFile({
+          url: 'https://www.fengzigeng.com/api/miniapp/uploadimg',
+          filePath: myThis.data.imgPreview[i],
+          name: 'image',
+          success (res) {
+              if (res.statusCode === 200) {
+                  // console.log(`uploadFile 调用成功 ${res.data}`);
+                  let tmp=JSON.parse(res.data);
+                  let path=tmp.data.path;
+                  imgArr.push(path);
+                  console.log(imgArr);
+                  if(i==myThis.data.imgPreview.length-1){//finish uploading
+                    upForm['image']=String(imgArr);
+                    tt.request({
+                      url: 'https://www.fengzigeng.com/api/miniapp/addfound', // 目标服务器url
+                      header:{
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                      },
+                      method:'POST',
+                      data:upForm,
+                      success: (res) => {
+                        myAlert('提交成功');
+                      }
+                    });
+                  }
+              }
+          },
+          fail (res) {
+              console.log(`uploadFile 调用失败`);
+          }
+        });
+      }
+    },
+    moreInfo: function(e){
+      this.setData({
+        more: e.detail.value
+      });
+    },
+    handelOtherPlace: function(e){
+      this.setData({
+        otherPlace: e.detail.value
+      });
     },
     handleDelImg: function(e){
       console.log(e.target.id);
@@ -141,7 +227,7 @@ var ms4 = [
           console.log(res.tempFilePaths);
           let arr=myThis.data.imgPreview;
           if(arr.length < 3){
-            arr.push(res.tempFilePaths);
+            arr.push(res.tempFilePaths[0]);
             myThis.setData({
               imgPreview: arr
             })
@@ -177,20 +263,19 @@ var ms4 = [
             placeDetail: e.detail.value
         });
     },
-    // bindDateChange: function (e) {
-    //   console.log('picker发送选择改变，携带值为', e.detail.value)
-    //   let myDate=String(e.detail.value).substr(5)
-    //   this.setData({
-    //       date: e.detail.value,
-    //       dateShow: myDate
-    //   })
-    // },
-    // bindPickerChange: function (e) {
-    //   console.log('picker发送选择改变，携带值为', e.detail.value)
-    //   this.setData({
-    //       index: e.detail.value
-    //   })
-    // },
+
+    radioChange2: function(e) {
+      console.log('Radio 发生 change 事件，value 值为：', e.detail.value)
+      var items = this.data.items2;
+      for (var i = 0, len = items.length; i < len; ++i) {
+        items[i].checked = items[i].value === e.detail.value
+      }
+      this.setData({
+        items2: items,
+        ratioVal2:e.detail.value
+      });
+    },
+
     radioChange: function(e) {
       console.log('Radio 发生 change 事件，value 值为：', e.detail.value)
       var items = this.data.items;
@@ -199,7 +284,7 @@ var ms4 = [
       }
       this.setData({
         items: items,
-        redioVal: e.detail.value
+        ratioVal: e.detail.value
       });
       let myThis=this;
       tt.request({
@@ -321,59 +406,7 @@ var ms4 = [
         }
         this.setData(data);
       },
-    // bindMultiPickerColumnChange3: function (e) {
-    //     // return;
-    //     console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
-    //     var data = {
-    //         multiArray3: this.data.multiArray3,
-    //         multiIndex3: this.data.multiIndex3
-    //     };
-    //     switch (e.detail.column) {
-    //         case 0:
-    //             data.multiIndex3[0] = e.detail.value;
-    //             data.multiIndex3[1] = 0;
-    //             data.multiIndex3[2] = 0;
-    //             data.multiArray3[1] = ms3[1][data.multiIndex3[0]];
-    //             // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
-    //             break;
-    //         case 1:
-    //             data.multiIndex3[1] = e.detail.value;
-    //             data.multiIndex3[2] = 0;
-    //             // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
-    //             break;
-    //         case 2:
-    //             // data.multiIndex[2] = e.detail.value;
-    //             break;
-    //     }
-    //     this.setData(data);
-    //   },
-    // bindMultiPickerColumnChange4: function (e) {
-    //     // return;
-    //     console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
-    //     var data = {
-    //         multiArray4: this.data.multiArray4,
-    //         multiIndex4: this.data.multiIndex4
-    //     };
-    //     switch (e.detail.column) {
-    //         case 0:
-    //             data.multiIndex4[0] = e.detail.value;
-    //             data.multiIndex4[1] = 0;
-    //             data.multiIndex4[2] = 0;
-    //             data.multiArray4[1] = ms4[1][data.multiIndex4[0]];
-    //             // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
-    //             break;
-    //         case 1:
-    //             data.multiIndex4[1] = e.detail.value;
-    //             data.multiIndex4[2] = 0;
-    //             // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
-    //             break;
-    //         case 2:
-    //             // data.multiIndex[2] = e.detail.value;
-    //             break;
-    //     }
-    //     this.setData(data);
-    //   },
-  
+
       onLoad: function (options) {
         let myThis=this;
       // 生命周期函数--监听页面加载

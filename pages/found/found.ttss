@@ -86,3 +86,13 @@
     height: 120px;
     display: block;
 }
+.now-pos{
+    text-align: left;
+    font-size: 16px;
+    margin-left: 32px;
+    margin-top: 12px;
+}
+.now-pos-radio{
+    display: flex;
+    justify-content: left;
+}
