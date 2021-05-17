@@ -169,7 +169,18 @@ var ms4 = [
                       method:'POST',
                       data:upForm,
                       success: (res) => {
-                        myAlert('提交成功');
+                        //init form
+                        myThis.setData({
+                          multiIndex1:[0,0],
+                          multiIndex2:[0,0],
+                          typeDetail:"",
+                          placeDetail:"",
+                          imgPreview:[],
+                          identify:"",
+                          more:"",
+                          otherPlace:""
+                        })
+                        myThis.myAlert('提交成功');
                       }
                     });
                   }
