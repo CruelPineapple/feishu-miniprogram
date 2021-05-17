@@ -51,20 +51,8 @@ Page({
   multiIndex2: [0, 0, 0],
   date: '2021-05-01',
   dateShow: '05-01',
-  lost: [
-    {
-      Image:[],
-      ItemType: '物品类型',
-      SubPlace: '遗失地点',
-      Date: '2021-5-10'
-    },
-    {
-      Image:[],
-      ItemType: '物品类型',
-      SubPlace: '遗失地点',
-      Date: '2021-5-10'
-    }
-  ]
+  lost: [],
+  showList: true
   },
   bindDateChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -73,6 +61,33 @@ Page({
         date: e.detail.value,
         dateShow: myDate
     })
+    let myThis=this;
+    tt.request({ 
+      url: 'https://www.fengzigeng.com/api/miniapp/getfound', // 目标服务器url
+      method: "POST",
+      header:{
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data:{
+        'type_index': this.data.multiIndex,
+        'campus_id': this.data.index,
+        'place':this.data.multiIndex2,
+        'date':this.data.date
+      },
+      success: (res) => {
+        console.log(res.data);
+        if(res.data.data=="[]"){
+          this.setData({
+            lost:[]
+          })
+        }else{
+          myThis.setData({
+            lost: res.data.data
+          });
+        }
+        
+      }
+    });
   },
   onLoad: function () {
     console.log('Welcome to Mini Code')
@@ -141,9 +156,55 @@ Page({
       },
       success: (res) => {
         console.log(res.data);
-        myThis.setData({
-          lost: res.data.data
-        });
+        if(res.data.data=="[]"){
+          this.setData({
+            lost:[]
+          })
+        }else{
+          myThis.setData({
+            lost: res.data.data
+          });
+        }
+      }
+    });
+
+    tt.request({
+      //获取地点列表
+      url: 'https://www.fengzigeng.com/api/miniapp/getplaces', // 目标服务器url
+      header:{
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data:{
+        'campus_id': myThis.data.index
+      },
+      method: 'POST',
+      success: (res) => {
+        //console.log('get type list',res);
+        if(res.data.code==200){
+          //console.log(JSON.stringify(res.data.data));
+          let row=res.data.data;
+          let reg=/\\/g;
+          let replaced=row.replace(reg,'');
+          //console.log(replaced);
+          console.log('final',eval('(' + replaced + ')'));
+          let finalArr=eval('(' + replaced + ')');
+          let dataArr=[];
+          dataArr[0]=finalArr[0];
+          dataArr[1]=finalArr[1][0];
+          console.log(dataArr);
+          let dataArr1=JSON.parse(JSON.stringify(dataArr));
+          dataArr1[0].unshift("可选");
+          dataArr1[1]=[];
+          console.log('arr1',dataArr1);
+          myThis.setData({
+            multiArray2: dataArr,
+          });
+          let finalArr1=JSON.parse(JSON.stringify(finalArr));
+          finalArr1[0].unshift("可选");
+          finalArr1[1].unshift([]);
+          ms2=finalArr;
+          console.log('multiarr',myThis.data.multiArray1);
+        }
       }
     });
   },
@@ -152,12 +213,64 @@ Page({
     this.setData({
         multiIndex: e.detail.value
     })
+    let myThis=this;
+    tt.request({ 
+      url: 'https://www.fengzigeng.com/api/miniapp/getfound', // 目标服务器url
+      method: "POST",
+      header:{
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data:{
+        'type_index': this.data.multiIndex,
+        'campus_id': this.data.index,
+        'place':this.data.multiIndex2,
+        'date':this.data.date
+      },
+      success: (res) => {
+        console.log(res.data);
+        if(res.data.data=="[]"){
+          this.setData({
+            lost:[]
+          })
+        }else{
+          myThis.setData({
+            lost: res.data.data
+          });
+        }
+      }
+    });
   },
   bindMultiPickerChange2: function (e) {
     console.log('picker2发送选择改变，携带值为', e.detail.value)
     this.setData({
         multiIndex2: e.detail.value
     })
+    let myThis=this;
+    tt.request({ 
+      url: 'https://www.fengzigeng.com/api/miniapp/getfound', // 目标服务器url
+      method: "POST",
+      header:{
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data:{
+        'type_index': this.data.multiIndex,
+        'campus_id': this.data.index,
+        'place':this.data.multiIndex2,
+        'date':this.data.date
+      },
+      success: (res) => {
+        console.log(res.data);
+        if(res.data.data=="[]"){
+          this.setData({
+            lost:[]
+          })
+        }else{
+          myThis.setData({
+            lost: res.data.data
+          });
+        }
+      }
+    });
   },
   bindMultiPickerColumnChange: function (e) {
       // return;
@@ -289,6 +402,47 @@ Page({
               });
             }
           });
+          
+          tt.request({
+            //获取地点列表
+            url: 'https://www.fengzigeng.com/api/miniapp/getplaces', // 目标服务器url
+            header:{
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            data:{
+              'campus_id': myThis.data.index
+            },
+            method: 'POST',
+            success: (res) => {
+              //console.log('get type list',res);
+              if(res.data.code==200){
+                //console.log(JSON.stringify(res.data.data));
+                let row=res.data.data;
+                let reg=/\\/g;
+                let replaced=row.replace(reg,'');
+                //console.log(replaced);
+                console.log('final',eval('(' + replaced + ')'));
+                let finalArr=eval('(' + replaced + ')');
+                let dataArr=[];
+                dataArr[0]=finalArr[0];
+                dataArr[1]=finalArr[1][0];
+                console.log(dataArr);
+                let dataArr1=JSON.parse(JSON.stringify(dataArr));
+                dataArr1[0].unshift("可选");
+                dataArr1[1]=[];
+                console.log('arr1',dataArr1);
+                myThis.setData({
+                  multiArray2: dataArr,
+                });
+                let finalArr1=JSON.parse(JSON.stringify(finalArr));
+                finalArr1[0].unshift("可选");
+                finalArr1[1].unshift([]);
+                ms2=finalArr;
+                console.log('multiarr',myThis.data.multiArray1);
+              }
+            }
+          });
+
       },
       fail (res) {
           console.log(`login 调用失败`);
