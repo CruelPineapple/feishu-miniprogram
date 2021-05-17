@@ -86,7 +86,7 @@ var ms4 = [
         ['可选','宿舍区', '教学区'],
         []
     ],
-    array: ['上午', '下午', '晚上'],
+    array: ['上午(6:00-11:00)','中午(11:00-14:00)', '下午(14:00-19:00)', '晚上(19:00-22:00)','夜间(22:00-6:00)'],
     index: 0,
     multiIndex1: [0, 0],
     multiIndex2: [0, 0],
@@ -102,21 +102,58 @@ var ms4 = [
       console.log('Welcome to Mini Code');
     },
     submit: function(){
+      let sectionArr=['morning','noon','afternoon','evening','night'];
       let upForm={
         'type_index':this.data.multiIndex1,
         'campus_id': this.data.ratioVal,
-        'place_1': this.data.multiIndex2
+        'place_1': this.data.multiIndex2,
+        'lost_date': this.data.date
       };
+      if(this.data.multiIndex3[0]!=0){
+        let index3=JSON.parse(JSON.stringify(this.data.multiIndex3));
+        index3[0]=index3[0]-1;
+        upForm['place_2']=index3;
+      }
+      if(this.data.multiIndex4[0]!=0){
+        let index4=JSON.parse(JSON.stringify(this.data.multiIndex4));
+        index4[0]=index4[0]-1;
+        upForm['place_3']=index4;
+      }
+
+      upForm['time_session']=sectionArr[this.data.index]
+   
+      console.log('upform',upForm);
       tt.request({
         url: 'https://www.fengzigeng.com/api/miniapp/addlost', // 目标服务器url
         header:{
           'Content-Type': 'application/x-www-form-urlencoded'
         },
-        data:{
-
-        },
+        data:upForm,
+        method: 'POST',
         success: (res) => {
-          
+          console.log(res);
+          if(res.data.code==200){
+            tt.showModal({
+              title:'发布失物查询成功',
+              content: '之后有疑似您的物品被拾到后，我们将尽快通知您',
+              showCancel: false,
+              success: (res) => {
+                if(res.confirm){
+                  tt.navigateBack();
+                }
+              }
+            });
+          }
+          else{
+            tt.showModal({
+              title:"发送失物查询失败",
+              content: res.data.msg+'msg:'+res.data.code,
+              showCancel:false,
+              success: (res) => {
+                
+              }
+            });
+          }
         }
       });
     },
