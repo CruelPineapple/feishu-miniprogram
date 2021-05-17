@@ -46,7 +46,7 @@ Page({
       ['校内14栋', '校内16栋']
   ],
   array: ['清水河校区', '沙河校区'],
-  index: 0,//校区picker
+  index: 1,//校区picker
   multiIndex: [0, 0, 0],
   multiIndex2: [0, 0, 0],
   date: '2021-05-01',
@@ -123,7 +123,29 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
         index: e.detail.value
-    })
+    });
+
+    
+    let myThis=this;
+    tt.request({ 
+      url: 'https://www.fengzigeng.com/api/miniapp/getfound', // 目标服务器url
+      method: "POST",
+      header:{
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data:{
+        'type_index': this.data.multiIndex,
+        'campus_id': this.data.index,
+        'place':this.data.multiIndex2,
+        'date':this.data.date
+      },
+      success: (res) => {
+        console.log(res.data);
+        myThis.setData({
+          lost: res.data.data
+        });
+      }
+    });
   },
   bindMultiPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -264,7 +286,7 @@ Page({
               console.log(res.data);
               myThis.setData({
                 lost: res.data.data
-              })
+              });
             }
           });
       },
