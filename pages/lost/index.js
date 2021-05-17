@@ -88,10 +88,10 @@ var ms4 = [
     ],
     array: ['上午', '下午', '晚上'],
     index: 0,
-    multiIndex1: [0, 0, 0],
-    multiIndex2: [0, 0, 0],
-    multiIndex3: [0, 0, 0],
-    multiIndex4: [0, 0, 0],
+    multiIndex1: [0, 0],
+    multiIndex2: [0, 0],
+    multiIndex3: [0, 0],
+    multiIndex4: [0, 0],
     date: '2021-05-01',
     dateShow: '05-01',
     time: '12:01',
@@ -100,6 +100,25 @@ var ms4 = [
     },
     onLoad: function () {
       console.log('Welcome to Mini Code');
+    },
+    submit: function(){
+      let upForm={
+        'type_index':this.data.multiIndex1,
+        'campus_id': this.data.ratioVal,
+        'place_1': this.data.multiIndex2
+      };
+      tt.request({
+        url: 'https://www.fengzigeng.com/api/miniapp/addlost', // 目标服务器url
+        header:{
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data:{
+
+        },
+        success: (res) => {
+          
+        }
+      });
     },
     bindDateChange: function (e) {
       console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -144,20 +163,27 @@ var ms4 = [
             let reg=/\\/g;
             let replaced=row.replace(reg,'');
             //console.log(replaced);
-            console.log(eval('(' + replaced + ')'));
+            console.log('final',eval('(' + replaced + ')'));
             let finalArr=eval('(' + replaced + ')');
             let dataArr=[];
             dataArr[0]=finalArr[0];
             dataArr[1]=finalArr[1][0];
             console.log(dataArr);
+            let dataArr1=JSON.parse(JSON.stringify(dataArr));
+            dataArr1[0].unshift("可选");
+            dataArr1[1]=[];
+            console.log('arr1',dataArr1);
             myThis.setData({
               multiArray2: dataArr,
-              multiArray3: dataArr,
-              multiArray4: dataArr,
+              multiArray3: dataArr1,
+              multiArray4: dataArr1,
             });
+            let finalArr1=JSON.parse(JSON.stringify(finalArr));
+            finalArr1[0].unshift("可选");
+            finalArr1[1].unshift([]);
             ms2=finalArr;
-            ms3=finalArr;
-            ms4=finalArr;
+            ms3=finalArr1;
+            ms4=finalArr1;
             console.log('multiarr',myThis.data.multiArray1);
           }
         }
@@ -349,20 +375,27 @@ var ms4 = [
             let reg=/\\/g;
             let replaced=row.replace(reg,'');
             //console.log(replaced);
-            console.log(eval('(' + replaced + ')'));
+            console.log('final',eval('(' + replaced + ')'));
             let finalArr=eval('(' + replaced + ')');
             let dataArr=[];
             dataArr[0]=finalArr[0];
             dataArr[1]=finalArr[1][0];
             console.log(dataArr);
+            let dataArr1=JSON.parse(JSON.stringify(dataArr));
+            dataArr1[0].unshift("可选");
+            dataArr1[1]=[];
+            console.log('arr1',dataArr1);
             myThis.setData({
               multiArray2: dataArr,
-              multiArray3: dataArr,
-              multiArray4: dataArr,
+              multiArray3: dataArr1,
+              multiArray4: dataArr1,
             });
+            let finalArr1=JSON.parse(JSON.stringify(finalArr));
+            finalArr1[0].unshift("可选");
+            finalArr1[1].unshift([]);
             ms2=finalArr;
-            ms3=finalArr;
-            ms4=finalArr;
+            ms3=finalArr1;
+            ms4=finalArr1;
             console.log('multiarr',myThis.data.multiArray1);
           }
         }
