@@ -160,7 +160,7 @@ var ms4 = [
                   imgArr.push(path);
                   console.log(imgArr);
                   if(i==myThis.data.imgPreview.length-1){//finish uploading
-                    upForm['image']=String(imgArr);
+                    upForm['image']=imgArr;
                     tt.request({
                       url: 'https://www.fengzigeng.com/api/miniapp/addfound', // 目标服务器url
                       header:{
