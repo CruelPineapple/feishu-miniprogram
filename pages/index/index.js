@@ -271,6 +271,35 @@ Page({
     },
 
     onLoad: function (options) {
+      let launchQuery=tt.getLaunchOptionsSync();
+      console.log(launchQuery);
+      if(launchQuery.query.lost_id){
+        let app=getApp();
+        app.lost_id=launchQuery.query.lost_id;
+        app.found_id=launchQuery.query.found_id;
+        tt.request({
+          url: 'https://www.fengzigeng.com/api/miniapp/getfound', // 目标服务器url
+          method: 'POST',
+          header:{
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          data:{
+            'id': launchQuery.query.found_id
+          },
+          success: (res) => {
+            console.log(res.data.data[0]);
+            let app=getApp();
+            app.lostInfo=res.data.data[0];
+            console.log(app.lostInfo);
+            tt.navigateTo({
+              url: '/pages/lostinfo/lostinfo' // 指定页面的url
+            });
+          }
+        });
+        tt.navigateTo({
+          url: '' // 指定页面的url
+        });
+      }
       let myThis=this;
     // 生命周期函数--监听页面加载
     tt.login({
