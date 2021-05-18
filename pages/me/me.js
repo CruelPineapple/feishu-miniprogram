@@ -5,7 +5,8 @@ Page({
         myInfo: undefined
     },
     handleDetail: function(e){
-        console.log(e.currentTarget.dataset.lostid)
+        console.log(e.currentTarget.dataset.lostid);
+        console.log(e.currentTarget.dataset.ismatch);
     },
     onLoad: function(options){
         let myThis=this;

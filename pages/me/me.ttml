@@ -14,7 +14,7 @@
             <view class="tab-info">
                 <view>{{item.ItemType}}</view>
                 <view class="{{item.IsMatched==true?'green':'red'}}">{{item.IsMatched==true?'已找到':'等待'}}</view>
-                <button data-lostid="{{item.LostID}}" bindtap="handleDetail" type="primary" size="small" class="btn">查看详情</button>
+                <button data-ismatch="{{item.IsMatched}}" data-lostid="{{item.LostID}}" bindtap="handleDetail" type="primary" size="small" class="btn">查看详情</button>
             </view>            
         </view>
     </view>
