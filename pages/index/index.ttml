@@ -51,7 +51,7 @@
 		</view>
 
 
-		<!-- <button bindtap="getCode" type="primary">获取code</button> -->
+		<button bindtap="getCode" type="primary">获取code</button>
 		<button bindtap="postLostConfirm" class="post-lost-btn" type="primary">发布失物查询</button>
 
 	</view> 
