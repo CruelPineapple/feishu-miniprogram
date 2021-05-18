@@ -1,9 +1,9 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/me/me",
     "pages/lost/index",
     "pages/found/found",
-    "pages/me/me",
     "pages/lostinfo/lostinfo"
   ],
   "window":{
