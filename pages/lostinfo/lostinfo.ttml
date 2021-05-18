@@ -13,6 +13,19 @@
             <view>详细描述</view>
             <view>{{lostInfo.Info}}</view>
         </view>
-        <button class="btn" type="primary" bindtap="handleRequestPosition">申请查看位置</button>
+        <view class="place-info" tt:if="{{lostInfo.AdditionalInfo!=''}}">补充信息：{{lostInfo.AdditionalInfo}}</view>
+        <view tt:if="{{showPlace}}" class="place-info">位置信息：{{lostInfo.PlaceDetail}}</view>
+        <textarea
+            class="input-area"
+            bindfocus="onTextFocus"
+            bindblur="onTextBlur"
+            bindinput="onTextInput"
+            bindconfirm="onTextConfirm"
+            placeholder="向找到的小伙伴说声感谢吧"
+            tt:if="{{showPlace}}"
+            />
+        <!-- <text>用户输入：{{value}}</text> -->
+        <button tt:if="{{!showPlace}}" class="btn" type="primary" bindtap="handleRequestPosition">认领并查看物品位置</button>
+        <button tt:if="{{showPlace}}" class="btn" type="primary" bindtap="handleThanks">发送</button>
     </view>
 </view>

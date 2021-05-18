@@ -1,10 +1,12 @@
 #app{
     height: 100%;
 }
-
+page{
+    height: 100%;
+}
 .page{
     background: #EFF0F1;
-    height: 100%;
+    min-height: 100%;
 }
 .pic-container{
     /* width: 100%;
@@ -29,6 +31,23 @@
     grid-template-rows: 32px 32px 32px 32px;
 }
 .btn{
-    width: 164px;
-    margin-top: 32px;
+    width: 220px;
+}
+.place-info{
+    font-size: 16px;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 16px;
+}
+.input-area{
+    /* margin-top: 16px; */
+    width: 300px;
+    height: 100px;
+    margin: 0 auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0,0,0,0.1);
+    background-color: white;
+    margin-bottom: 32px;
 }
