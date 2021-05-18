@@ -1,0 +1,21 @@
+<view class="page">
+    <view class="title-container">
+        <image src="{{avatarUrl}}" class="avatar"></image>
+        <view class="title-info">
+            <view>{{nickName}}</view>
+            <view>已经找回{{myInfo.HasFound}}件物品</view>
+            <view>帮助找到{{myInfo.HasHelped}}件物品</view>
+        </view>
+    </view>
+    <view class="lost">
+        <view class="lost-title">丢失物品：</view>
+        <view class="lost-tab"  tt:for="{{myInfo.MyLosts}}">
+            <image  src="{{item.IsMatched==true?'../../assets/yes.png':'../../assets/no.png'}}"></image>
+            <view class="tab-info">
+                <view>{{item.ItemType}}</view>
+                <view class="{{item.IsMatched==true?'green':'red'}}">{{item.IsMatched==true?'已找到':'等待'}}</view>
+                <button data-lostid="{{item.LostID}}" bindtap="handleDetail" type="primary" size="small" class="btn">查看详情</button>
+            </view>            
+        </view>
+    </view>
+</view>
