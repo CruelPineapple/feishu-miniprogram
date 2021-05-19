@@ -170,17 +170,30 @@ var ms4 = [
                       data:upForm,
                       success: (res) => {
                         //init form
-                        myThis.setData({
-                          multiIndex1:[0,0],
-                          multiIndex2:[0,0],
-                          typeDetail:"",
-                          placeDetail:"",
-                          imgPreview:[],
-                          identify:"",
-                          more:"",
-                          otherPlace:""
-                        })
-                        myThis.myAlert('提交成功');
+                        if(res.code==200){
+
+                          myThis.setData({
+                            multiIndex1:[0,0],
+                            multiIndex2:[0,0],
+                            typeDetail:"",
+                            placeDetail:"",
+                            imgPreview:[],
+                            identify:"",
+                            more:"",
+                            otherPlace:""
+                          })
+                          myThis.myAlert('提交成功');
+                          tt.navigateTo({
+                            url: '/pages/index/index',
+                            success (res) {
+                              console.log(`res`);
+                            },
+                            fail (res) {
+                              console.log(`navigateTo failure`);
+                            }
+                          })
+                        }
+
                       }
                     });
                   }
