@@ -69,13 +69,12 @@ Page({
       success: (res) => {
         //console.log('get type list',res);
         if(res.data.code==200){
-          //console.log(JSON.stringify(res.data.data));
-          let row=res.data.data;
-          let reg=/\\/g;
-          let replaced=row.replace(reg,'');
-          //console.log(replaced);
-          console.log('final',eval('(' + replaced + ')'));
-          let finalArr=eval('(' + replaced + ')');
+          let finalArr=[];
+          let arr1=res.data.data.place1;
+          let arr2=res.data.data.place2;
+          finalArr.push(arr1);
+          finalArr.push(arr2);
+
           let dataArr=[];
           dataArr[0]=finalArr[0];
           dataArr[1]=finalArr[1][0];
@@ -350,13 +349,12 @@ Page({
             success: (res) => {
               //console.log('get type list',res);
               if(res.data.code==200){
-                //console.log(JSON.stringify(res.data.data));
-                let row=res.data.data;
-                let reg=/\\/g;
-                let replaced=row.replace(reg,'');
-                //console.log(replaced);
-                console.log(eval('(' + replaced + ')'));
-                let finalArr=eval('(' + replaced + ')');
+                let finalArr=[];
+                let arr1=res.data.data.type1;
+                let arr2=res.data.data.type2;
+                finalArr.push(arr1);
+                finalArr.push(arr2);
+
                 let dataArr=[];
                 dataArr[0]=finalArr[0];
                 dataArr[1]=finalArr[1][0];
@@ -397,12 +395,11 @@ Page({
               //console.log('get type list',res);
               if(res.data.code==200){
                 //console.log(JSON.stringify(res.data.data));
-                let row=res.data.data;
-                let reg=/\\/g;
-                let replaced=row.replace(reg,'');
-                //console.log(replaced);
-                console.log('final',eval('(' + replaced + ')'));
-                let finalArr=eval('(' + replaced + ')');
+                let finalArr=[];
+                let arr1=res.data.data.place1;
+                let arr2=res.data.data.place2;
+                finalArr.push(arr1);
+                finalArr.push(arr2);
                 let dataArr=[];
                 dataArr[0]=finalArr[0];
                 dataArr[1]=finalArr[1][0];
