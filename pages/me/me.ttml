@@ -9,6 +9,7 @@
     </view>
     <view class="lost">
         <view class="lost-title">丢失物品：</view>
+        <view class="lost-title" tt:if="{{myInfo.MyLosts==null}}">暂无</view>
         <view class="lost-tab"  tt:for="{{myInfo.MyLosts}}">
             <image  src="{{item.IsMatched==true?'../../assets/yes.png':'../../assets/no.png'}}"></image>
             <view class="tab-info">
@@ -20,6 +21,7 @@
     </view>
     <view class="lost">
         <view class="lost-title">拾到物品：</view>
+        <view class="lost-title" tt:if="{{myInfo.MyFounds==null}}">暂无</view>
         <view class="lost-tab"  tt:for="{{myInfo.MyFounds}}">
             <image  src="{{item.Image}}"></image>
             <view class="tab-info">
