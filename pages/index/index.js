@@ -138,7 +138,7 @@ Page({
   postLostConfirm: function(){
     tt.showModal({
       title: '您希望发送一个失物查询请求',
-      content: '如果您在下方列表中未找到丢失物品，可能是您的失物还未被拾取。若稍后出现符合您填写特征的物品被拾到，我们将以消息的形式通知您',
+      content: '您的失物还未被拾取，因此没有出现在列表中。符合您填写特征的物品被拾到后，我们将以消息的形式通知您',
       success (res) {
           if (res.confirm) {
               console.log('confirm, continued');
