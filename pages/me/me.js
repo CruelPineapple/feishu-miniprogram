@@ -67,6 +67,20 @@ Page({
           }
         });
     },
+    onShow: function() {
+      // Do something when page show.
+      tt.request({
+        url: 'https://www.fengzigeng.com/api/miniapp/me', // 目标服务器url
+        method:'GET',
+        success: (res) => {
+          if(res.data.code==200){
+              myThis.setData({
+                  myInfo:res.data.data
+              })
+          }
+        }
+      });
+    },
     onLoad: function(options){
         let myThis=this;
         tt.getUserInfo({
