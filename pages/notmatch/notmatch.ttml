@@ -1,0 +1,21 @@
+<view class="page">
+    <view>
+        <view class="pic-container">
+            <image class="lost-img" src={{lostInfo.Image}} mode="aspectFill"></image>
+        </view>
+        <view class="detail-info">
+            <view>丢失时间</view>
+            <view>{{lostInfo.LostDate}}</view>
+            <view>物品类型</view>
+            <view>{{lostInfo.TypeSubName}}</view>
+            <view>可能丢失地点</view>
+            <view>{{lostInfo.LostPlace1}}</view>
+            <view>可能丢失地点</view>
+            <view>{{lostInfo.LostPlace2!=''?lostInfo.LostPlace2:'无'}}</view>
+            <view>可能丢失地点</view>
+            <view>{{lostInfo.LostPlace3!=''?lostInfo.LostPlace3:'无'}}</view>
+        </view>
+        <view class="{{matched==true?'green':'red'}}">{{matched?'已找到':'未找到'}}</view>
+
+    </view>
+</view>
