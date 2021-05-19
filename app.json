@@ -2,10 +2,12 @@
   "pages":[
     "pages/index/index",
     "pages/me/me",
+    "pages/matched/matched",
     "pages/lost/index",
     "pages/found/found",
     "pages/lostinfo/lostinfo",
-    "pages/matched/matched"
+    "pages/notmatch/notmatch"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
