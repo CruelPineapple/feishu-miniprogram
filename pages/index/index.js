@@ -52,7 +52,7 @@ Page({
   date: '2021-05-01',
   dateShow: '05-01',
   lost: [],
-  showList: true
+  showList: true,
   },
   getPlace: function(){
     let myThis=this;
@@ -271,6 +271,28 @@ Page({
     },
 
     onLoad: function (options) {
+      let now=new Date();
+      let month=now.getMonth()+1;
+      let day=now.getDate();
+      let year=now.getFullYear();
+      console.log('date',year,month,day)
+      if(String(month).length==1){
+        let nowStr=year+'-'+'0'+month+'-'+day;
+        console.log('day str',nowStr);
+        let nowShow='0'+month+'-'+day
+        this.setData({
+          date:nowStr,
+          dateShow:nowShow
+        })
+      }else{
+        let nowStr=year+'-'+month+'-'+day;
+        let nowShow=month+'-'+day
+        console.log('day str',nowStr);
+        this.setData({
+          date:nowStr,
+          dateShow:nowShow
+        })
+      }
       let launchQuery=tt.getLaunchOptionsSync();
       console.log(launchQuery);
       if(launchQuery.query.lost_id){
@@ -417,7 +439,20 @@ Page({
     onShow: function () {
      
     // 生命周期函数--监听页面显示
-     
+    let myThis=this;
+    tt.request({
+      url: 'https://www.fengzigeng.com/api/miniapp/getfound', // 目标服务器url
+      header:{
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST',
+      success: (res) => {
+        console.log(res.data);
+        myThis.setData({
+          lost: res.data.data
+        });
+      }
+    });
     },
      
     onHide: function () {
