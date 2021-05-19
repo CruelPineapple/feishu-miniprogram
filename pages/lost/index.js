@@ -267,13 +267,13 @@ var ms4 = [
             case 0:
                 data.multiIndex1[0] = e.detail.value;
                 data.multiIndex1[1] = 0;
-                data.multiIndex1[2] = 0;
+                // data.multiIndex1[2] = 0;
                 data.multiArray1[1] = ms1[1][data.multiIndex1[0]];
                 // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
                 break;
             case 1:
                 data.multiIndex1[1] = e.detail.value;
-                data.multiIndex1[2] = 0;
+                // data.multiIndex1[2] = 0;
                 // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
                 break;
             case 2:
@@ -293,13 +293,13 @@ var ms4 = [
             case 0:
                 data.multiIndex2[0] = e.detail.value;
                 data.multiIndex2[1] = 0;
-                data.multiIndex2[2] = 0;
+                // data.multiIndex2[2] = 0;
                 data.multiArray2[1] = ms2[1][data.multiIndex2[0]];
                 // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
                 break;
             case 1:
                 data.multiIndex2[1] = e.detail.value;
-                data.multiIndex2[2] = 0;
+                // data.multiIndex2[2] = 0;
                 // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
                 break;
             case 2:
@@ -319,13 +319,13 @@ var ms4 = [
             case 0:
                 data.multiIndex3[0] = e.detail.value;
                 data.multiIndex3[1] = 0;
-                data.multiIndex3[2] = 0;
+                // data.multiIndex3[2] = 0;
                 data.multiArray3[1] = ms3[1][data.multiIndex3[0]];
                 // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
                 break;
             case 1:
                 data.multiIndex3[1] = e.detail.value;
-                data.multiIndex3[2] = 0;
+                // data.multiIndex3[2] = 0;
                 // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
                 break;
             case 2:
@@ -345,13 +345,13 @@ var ms4 = [
             case 0:
                 data.multiIndex4[0] = e.detail.value;
                 data.multiIndex4[1] = 0;
-                data.multiIndex4[2] = 0;
+                // data.multiIndex4[2] = 0;
                 data.multiArray4[1] = ms4[1][data.multiIndex4[0]];
                 // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
                 break;
             case 1:
                 data.multiIndex4[1] = e.detail.value;
-                data.multiIndex4[2] = 0;
+                // data.multiIndex4[2] = 0;
                 // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
                 break;
             case 2:

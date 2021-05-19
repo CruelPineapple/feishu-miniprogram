@@ -47,8 +47,8 @@ Page({
   ],
   array: ['清水河校区', '沙河校区'],
   index: 1,//校区picker
-  multiIndex: [0, 0, 0],
-  multiIndex2: [0, 0, 0],
+  multiIndex: [0, 0],
+  multiIndex2: [0, 0],
   date: '2021-05-01',
   dateShow: '05-01',
   lost: [],
@@ -212,13 +212,13 @@ Page({
           case 0:
               data.multiIndex[0] = e.detail.value;
               data.multiIndex[1] = 0;
-              data.multiIndex[2] = 0;
+              // data.multiIndex[2] = 0;
               data.multiArray[1] = ms[1][data.multiIndex[0]];
               // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
               break;
           case 1:
               data.multiIndex[1] = e.detail.value;
-              data.multiIndex[2] = 0;
+              // data.multiIndex[2] = 0;
               // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
               break;
           case 2:
@@ -238,13 +238,13 @@ Page({
           case 0:
               data.multiIndex2[0] = e.detail.value;
               data.multiIndex2[1] = 0;
-              data.multiIndex2[2] = 0;
+              // data.multiIndex2[2] = 0;
               data.multiArray2[1] = ms2[1][data.multiIndex2[0]];
               // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
               break;
           case 1:
               data.multiIndex2[1] = e.detail.value;
-              data.multiIndex2[2] = 0;
+              // data.multiIndex2[2] = 0;
               // data.multiArray[2] = ms[2][data.multiIndex[0]][data.multiIndex[1]];
               break;
           case 2:
