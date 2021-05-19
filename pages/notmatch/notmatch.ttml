@@ -16,6 +16,6 @@
             <view>{{lostInfo.LostPlace3!=''?lostInfo.LostPlace3:'无'}}</view>
         </view>
         <view class="{{matched==true?'green':'red'}}">{{matched?'已找到':'未找到'}}</view>
-
+        <button type="primary" bindtap="handleFound" class="btn">自行找到了</button>
     </view>
 </view>
