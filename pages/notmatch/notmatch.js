@@ -28,9 +28,12 @@ Page({
                         tt.showToast({
                           title: '认领成功', // 内容
                           success: (res) => {
-                            
+
                           }
                         });
+                        myThis.setData({
+                            matched:true
+                        })
                     }
                   }
                 });
