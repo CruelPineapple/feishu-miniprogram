@@ -12,10 +12,12 @@
             <view>{{lostInfo.Campus}}{{lostInfo.Place}}</view>
             <view>详细描述</view>
             <view>{{lostInfo.ItemInfo!=''?lostInfo.ItemInfo:'无'}}</view>
+            <view>位置信息</view>
+            <view>{{lostInfo.PlaceDetail}}</view>
         </view>
         <view class="{{matched==true?'green':'red'}}">{{matched?'已找到':'等待'}}</view>
         <view class="place-info" tt:if="{{lostInfo.AdditionalInfo!=''}}">补充信息：{{lostInfo.AdditionalInfo}}</view>
-        <view class="place-info" tt:if="{{lostInfo.PlaceDetail!=''}}" >位置信息：{{lostInfo.PlaceDetail}}</view>
+        <!-- <view class="place-info" tt:if="{{lostInfo.PlaceDetail!=''}}" >位置信息：{{lostInfo.PlaceDetail}}</view> -->
         <view class="place-info" tt:if="{{lostInfo.LosterComment!=''}}">留言：{{lostInfo.LosterComment}}</view>
 
     </view>

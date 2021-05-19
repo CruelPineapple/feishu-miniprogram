@@ -28,7 +28,7 @@ page{
     width: 90%;
     margin: 0 auto;
     grid-template-columns: 116px 208px;
-    grid-template-rows: 32px 32px 32px 32px;
+    grid-template-rows: 32px 32px 32px 32px 32px;
 }
 .btn{
     width: 220px;

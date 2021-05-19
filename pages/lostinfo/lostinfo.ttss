@@ -29,6 +29,10 @@ page{
     margin: 0 auto;
     grid-template-columns: 116px 208px;
     grid-template-rows: 32px 32px 32px 32px;
+    border-bottom: solid;
+    border-color: #1f2329;
+    margin-bottom: 12px;
+    border-width: 1px;
 }
 .btn{
     width: 220px;
@@ -37,7 +41,8 @@ page{
     font-size: 16px;
     width: 300px;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
+    padding-left: 13px;
     margin-bottom: 16px;
 }
 .input-area{
