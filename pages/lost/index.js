@@ -196,8 +196,8 @@ var ms4 = [
           //console.log('get type list',res);
           if(res.data.code==200){
             let finalArr=[];
-            let arr1=res.data.data.type1;
-            let arr2=res.data.data.type2;
+            let arr1=res.data.data.place1;
+            let arr2=res.data.data.place2;
             finalArr.push(arr1);
             finalArr.push(arr2);
 
@@ -406,11 +406,11 @@ var ms4 = [
           //console.log('get type list',res);
           if(res.data.code==200){
             let finalArr=[];
-            let arr1=res.data.data.type1;
-            let arr2=res.data.data.type2;
+            let arr1=res.data.data.place1;
+            let arr2=res.data.data.place2;
             finalArr.push(arr1);
             finalArr.push(arr2);
-            
+
             let dataArr=[];
             dataArr[0]=finalArr[0];
             dataArr[1]=finalArr[1][0];
