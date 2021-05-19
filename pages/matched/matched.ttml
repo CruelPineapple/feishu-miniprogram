@@ -1,0 +1,22 @@
+<view class="page">
+    <view>
+        <view class="pic-container">
+            <image class="lost-img" src={{lostInfo.Image}} mode="aspectFill"></image>
+        </view>
+        <view class="detail-info">
+            <view>物品种类</view>
+            <view>{{lostInfo.SubType}}</view>
+            <view>找到时间</view>
+            <view>{{lostInfo.FoundDate}} {{lostInfo.FoundTime}}</view>
+            <view>遗失地点</view>
+            <view>{{lostInfo.Campus}}{{lostInfo.Place}}</view>
+            <view>详细描述</view>
+            <view>{{lostInfo.ItemInfo!=''?lostInfo.ItemInfo:'无'}}</view>
+        </view>
+        <view class="{{matched==true?'green':'red'}}">{{matched?'已找到':'未找到'}}</view>
+        <view class="place-info" tt:if="{{lostInfo.AdditionalInfo!=''}}">补充信息：{{lostInfo.AdditionalInfo}}</view>
+        <view class="place-info" tt:if="{{lostInfo.PlaceDetail!=''}}" >位置信息：{{lostInfo.PlaceDetail}}</view>
+        <view class="place-info" tt:if="{{lostInfo.LosterComment!=''}}">留言：{{lostInfo.LosterComment}}</view>
+
+    </view>
+</view>
