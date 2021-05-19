@@ -6,5 +6,6 @@ App({
   lost_id:undefined,
   found_id:undefined,
   matchInfo:undefined,
-  match:undefined
+  match:undefined,
+  notmatchInfo: undefined
 })

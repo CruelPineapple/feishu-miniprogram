@@ -29,6 +29,7 @@ Page({
                   }
                   });
             }else{
+                app.notmatchInfo=res.data.data
                 tt.navigateTo({
                   url: '/pages/notmatch/notmatch' // 指定页面的url
                 });
