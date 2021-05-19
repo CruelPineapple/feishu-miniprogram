@@ -21,11 +21,11 @@
     <view class="lost">
         <view class="lost-title">拾到物品：</view>
         <view class="lost-tab"  tt:for="{{myInfo.MyFounds}}">
-            <image  src="{{item.IsMatched==true?'../../assets/yes.png':'../../assets/no.png'}}"></image>
+            <image  src="{{item.Image}}"></image>
             <view class="tab-info">
                 <view>{{item.ItemType}}</view>
                 <view class="{{item.IsMatched==true?'green':'red'}}">{{item.IsMatched==true?'已找到':'等待'}}</view>
-                <button data-ismatch="{{item.IsMatched}}" data-lostid="{{item.LostID}}" bindtap="handleDetail" type="primary" size="small" class="btn">查看详情</button>
+                <button data-ismatch="{{item.IsMatched}}" data-foundid="{{item.FoundID}}" bindtap="handleFoundDetail" type="primary" size="small" class="btn">查看详情</button>
             </view>            
         </view>
     </view>
