@@ -2,7 +2,10 @@ Page({
     data: {
         lostInfo: undefined,
         showPlace: false,
-        value:""
+        value:"",
+        statusArr:['放在原处','自行带走，请联系拾到者（联系方式已经通过机器人发送）','放在别处'],
+        currentIndex:0,
+        currentDetail:""
     },
     onTextInput: function (e) {
         if(this.data.value.length<100){
@@ -84,6 +87,11 @@ Page({
                             'found_id':app.found_id
                           },
                           success: (res) => {
+                            console.log(res.data);
+                            myThis.setData({
+                              currentIndex: res.data.data.CurrentPlace,
+                              currentDetail:res.data.data.CurrentPlaceDetail
+                            });
                             if(res.data.code==200){
                                 tt.showModal({
                                     title:'提示',
@@ -95,10 +103,10 @@ Page({
                                     })
                                   }
                                 });
-                            }else if(res.data.code==400){
+                            }else {
                                 tt.showModal({
                                     title:'提示',
-                                    content: '此物品已经被认领',
+                                    content: res.data.msg,
                                     showCancel:false,
                                   success: (res) => {
                                     myThis.setData({
@@ -131,6 +139,10 @@ Page({
                           },
                           success: (res) => {
                             if(res.data.code==200){
+                              myThis.setData({
+                                currentIndex: res.data.data.CurrentPlace,
+                                currentDetail:res.data.data.CurrentPlaceDetail
+                              });
                                 tt.showModal({
                                     title:'提示',
                                     content: '认领成功',
@@ -141,10 +153,10 @@ Page({
                                     })
                                   }
                                 });
-                            }else if(res.data.code==400){
+                            }else{
                                 tt.showModal({
                                     title:'提示',
-                                    content: '此物品已经被认领',
+                                    content: res.data.msg,
                                     showCancel:false,
                                   success: (res) => {
                                     myThis.setData({
