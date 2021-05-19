@@ -7,6 +7,35 @@ Page({
     handleDetail: function(e){
         console.log(e.currentTarget.dataset.lostid);
         console.log(e.currentTarget.dataset.ismatch);
+        tt.request({
+          url: 'https://www.fengzigeng.com/api/miniapp/me', // 目标服务器url
+          method: 'POST',
+          header:{
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          data:{
+              'LostId':e.currentTarget.dataset.lostid
+          },
+          success: (res) => {
+            console.log(res.data);
+            let app=getApp();
+            app.matchInfo=res.data.data;
+            app.match=e.currentTarget.dataset.ismatch
+            if(e.currentTarget.dataset.ismatch){
+                tt.navigateTo({
+                    url: '/pages/matched/matched', // 指定页面的url
+                    fail (res) {
+                      console.log(`navigateTo 调用失败`,res);
+                  }
+                  });
+            }else{
+                tt.navigateTo({
+                  url: '/pages/notmatch/notmatch' // 指定页面的url
+                });
+            }
+
+          }
+        });
     },
     onLoad: function(options){
         let myThis=this;
