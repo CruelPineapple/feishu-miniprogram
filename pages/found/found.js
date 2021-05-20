@@ -170,7 +170,7 @@ var ms4 = [
                       data:upForm,
                       success: (res) => {
                         //init form
-                        if(res.code==200){
+                        if(res.data.code==200){
 
                           myThis.setData({
                             multiIndex1:[0,0],
