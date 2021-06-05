@@ -23,17 +23,20 @@
       {
         "pagePath": "pages/index/index",
         "text": "寻找失物",
-        "iconPath": "./assets/lost.png"
+        "iconPath": "./assets/lost.png",
+        "selectedIconPath": "./assets/lostS.png"
       },
       {
         "pagePath": "pages/found/found",
         "text": "发布招领",
-        "iconPath": "./assets/found.png"
+        "iconPath": "./assets/found.png",
+        "selectedIconPath": "./assets/foundS.png"
       },
       {
         "pagePath": "pages/me/me",
         "text": "我的",
-        "iconPath": "./assets/me.png"
+        "iconPath": "./assets/me.png",
+        "selectedIconPath": "./assets/meS.png"
       }
     ]
   }
