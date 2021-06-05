@@ -3,19 +3,25 @@
     padding-bottom: 24px;
 }
 .title-container{
-    height: 112px;
+    height: 100px;
     color: white;
     background: url(./assets/bg.png);
     padding-left: 12px;
 }
 .title{
-    font-size: 24px;
+    font-size: 20px;
     padding-top: 16px;
 
 }
 .title-container>text{
-    font-size: 16px;
+    font-size: 14px;
 
+}
+.sub-title{
+    border-left: solid;
+    border-color: #3B5BD2;
+    border-width: 2px;
+    padding-left: 16px;
 }
 .picker1-content{
     margin-top: 15px;
@@ -95,4 +101,5 @@
 .now-pos-radio{
     display: flex;
     justify-content: left;
+    margin-bottom: 8px;
 }

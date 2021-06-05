@@ -11,14 +11,14 @@
     	bindchange="bindMultiPickerChange1"
     	bindcolumnchange="bindMultiPickerColumnChange1"
     	value="{{multiIndex1}}" range="{{multiArray1}}">
-            <p style="margin-left:15px;font-size:16px">●物品种类</p>
+            <p class="sub-title" style="margin-left:15px;font-size:20px">物品种类</p>
   			<view class="picker1">
                 <text style="margin-left:15px">{{multiArray1[1][multiIndex1[1]]}}</text>
                 <p class="arrow"> </p>
   			</view>
 		</picker>
         <input class="input" placeholder="详细描述" bindinput="handelTypeDetail"></input>
-        <p style="margin-left:15px;margin-top:12px;font-size:16px">●拾取地点</p>
+        <p class="sub-title" style="margin-left:15px;font-size:20px">拾取地点</p>
         <radio-group class="radio-group" bindchange="radioChange">
             <label class="page-cell page-check__label" tt:for="{{items}}" tt:key="{{item.value}}">
                 <view class="page-cell__hd">
@@ -40,14 +40,14 @@
   			</view>
 		</picker>
         <input class="input" placeholder="详细描述" bindinput="handelPlaceDetail"></input>
-        <p style="margin-left:15px;font-size:16px">●相关图片</p>
+        <p class="sub-title" style="margin-left:15px;font-size:20px">相关图片</p>
         <button class="submit-btn" bindtap="handleUpload" >上传图片</button>
         <view class="img-preview">
             <image mode="aspectFill" bindtap="handleDelImg" tt:for="{{imgPreview}}" src="{{item}}" id={{index}}></image>
         </view>
-        <p style="margin-left:15px;font-size:16px">●身份信息</p>
+        <p class="sub-title" style="margin-left:15px;font-size:20px">身份信息</p>
         <input class="input" placeholder="（可选）失主姓名" bindinput="handelIdentify"></input>
-        <p style="margin-left:15px;font-size:16px">●当前位置</p>
+        <p class="sub-title" style="margin-left:15px;font-size:20px">当前位置</p>
         
         <view class="now-pos">      
             <view class="now-pos-radio page-cells page-cells_after-title">
@@ -63,7 +63,7 @@
             </view>
         </view>
         <input tt:if="{{ratioVal2==2}}" class="input" placeholder="失物现在位置" bindinput="handelOtherPlace"></input>
-        <p style="margin-left:15px;font-size:16px">●补充信息</p>
+        <p class="sub-title" style="margin-left:15px;font-size:20px;">补充信息</p>
         <input class="input" placeholder="（可选）" bindinput="moreInfo"></input>
         <button class="submit-btn" bindtap="submit" type="primary">提交</button>
     </view>
