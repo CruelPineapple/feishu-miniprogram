@@ -147,7 +147,8 @@ page{
   margin-bottom: 24px;
 }
 .sub-lost-info{
-  display: block;
+  display: flex;
+  align-items: center;
   margin-top: 8px;
   font-size: 14px;
   color: #646A73;
