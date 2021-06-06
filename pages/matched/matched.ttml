@@ -4,21 +4,25 @@
             <image class="lost-img" src={{lostInfo.Image}} mode="aspectFill"></image>
         </view>
         <view class="detail-info">
-            <view>物品种类</view>
-            <view>{{lostInfo.SubType}}</view>
-            <view>找到时间</view>
-            <view>{{lostInfo.FoundDate}} {{lostInfo.FoundTime}}</view>
-            <view>遗失地点</view>
-            <view>{{lostInfo.Campus}}{{lostInfo.Place}}</view>
-            <view>详细描述</view>
-            <view>{{lostInfo.ItemInfo!=''?lostInfo.ItemInfo:'无'}}</view>
-            <view>位置信息</view>
-            <view>{{lostInfo.PlaceDetail}}</view>
+            <view class="primary-title">物品种类：{{lostInfo.SubType}}</view>
+            
+            <view class="sub-content"><image class="icon" src="../../assets/date.png"></image>{{lostInfo.FoundDate}} {{lostInfo.FoundTime}}</view>
+            <view class="sub-content"><image class="icon" src="../../assets/pos.png"></image>{{lostInfo.Campus}}{{lostInfo.Place}}</view>
+            <!-- <view class="primary-title">位置信息</view>
+            <view class="sub-content">{{lostInfo.PlaceDetail}}</view> -->
+            <view style="margin-top:12px" class="primary-title">详细描述</view>
+            <view class="sub-content">{{lostInfo.ItemInfo!=''?lostInfo.ItemInfo:'无'}}</view>
+
+            <view style="margin-top:12px" class="primary-title">状态</view>
+            <view class="{{matched==true?'green':'red'}}">{{matched?'已找到':'等待'}}</view>
+            <view style="margin-top:12px" class="primary-title" tt:if="{{lostInfo.AdditionalInfo!=''}}">补充信息</view>
+            <view class="sub-content" tt:if="{{lostInfo.AdditionalInfo!=''}}">{{lostInfo.AdditionalInfo}}</view>
+            <view class="primary-title" tt:if="{{lostInfo.LosterComment!=''}}">留言</view>
+            <view class="sub-content" tt:if="{{lostInfo.LosterComment!=''}}">{{lostInfo.LosterComment}}</view>
         </view>
-        <view class="{{matched==true?'green':'red'}}">{{matched?'已找到':'等待'}}</view>
-        <view class="place-info" tt:if="{{lostInfo.AdditionalInfo!=''}}">补充信息：{{lostInfo.AdditionalInfo}}</view>
-        <!-- <view class="place-info" tt:if="{{lostInfo.PlaceDetail!=''}}" >位置信息：{{lostInfo.PlaceDetail}}</view> -->
-        <view class="place-info" tt:if="{{lostInfo.LosterComment!=''}}">留言：{{lostInfo.LosterComment}}</view>
+       
+    
+        
 
     </view>
 </view>
