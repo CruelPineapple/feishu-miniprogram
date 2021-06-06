@@ -182,16 +182,23 @@ var ms4 = [
                             more:"",
                             otherPlace:""
                           })
-                          myThis.myAlert('提交成功');
-                          tt.navigateTo({
-                            url: '/pages/index/index',
-                            success (res) {
-                              console.log(`res`);
-                            },
-                            fail (res) {
-                              console.log(`navigateTo failure`);
+                          tt.showModal({
+                            title:'提示',
+                            content: '提交成功',
+                            showCancel: false,
+                            success: (res) => {
+                              if(res.confirm){
+                                tt.reLaunch({
+                                  url: '/pages/index/index' // 指定页面的url
+                                });
+                              }else if(res.cancel){
+                                tt.reLaunch({
+                                  url: '/pages/index/index' // 指定页面的url
+                                });
+                              }
                             }
-                          })
+                          });
+
                         }
 
                       }
