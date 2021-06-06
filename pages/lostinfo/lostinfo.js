@@ -51,7 +51,7 @@ Page({
                 tt.showToast({
                   title: '发送成功', // 内容
                   success: (res) => {
-                    
+                    setTimeout(tt.navigateBack(),3000);
                   }
                 });
             }
