@@ -4,19 +4,20 @@
             <image class="lost-img" src={{lostInfo.Image}} mode="aspectFill"></image>
         </view>
         <view class="detail-info">
-            <view>物品种类</view>
-            <view>{{lostInfo.SubType}}</view>
-            <view>找到时间</view>
-            <view>{{lostInfo.FoundDate}} {{lostInfo.FoundTime}}</view>
-            <view>遗失地点</view>
-            <view>{{lostInfo.Place}}</view>
-            <view>详细描述</view>
-            <view>{{lostInfo.Info}}</view>
+            <view class="primary-title">物品种类：{{lostInfo.SubType}}</view> 
+            <view class="sub-content"><image class="icon" src="../../assets/date.png"></image>{{lostInfo.FoundDate}} {{lostInfo.FoundTime}}</view>
+            <view class="sub-content"><image class="icon" src="../../assets/pos.png"></image>{{lostInfo.Place}}</view>
+            <view style="margin-top:12px" class="primary-title">详细描述</view>
+            <view class="sub-content">{{lostInfo.Info}}</view>
+            <view class="primary-title" tt:if="{{lostInfo.AdditionalInfo!=''}}">补充信息</view>
+            <view>{{lostInfo.AdditionalInfo}}</view>
+            <view style="margin-top:12px" tt:if="{{showPlace}}" class="primary-title">当前信息</view>
+            <view class="sub-content" tt:if="{{showPlace}}"><image class="icon" src="../../assets/pos.png"></image>{{lostInfo.PlaceDetail}}</view>
+            <view class="sub-content" tt:if="{{showPlace}}"><image class="icon" src="../../assets/info.png"></image>{{statusArr[currentIndex]}}</view>
+            <view class="sub-content" tt:if="{{currentDetail!=''}}"><image class="icon" src="../../assets/detail.png"></image>{{currentDetail}}</view>
+            <view style="margin-top:12px" tt:if="{{showPlace}}" class="primary-title">留言</view>
         </view>
-        <view class="place-info" tt:if="{{lostInfo.AdditionalInfo!=''}}">补充信息：{{lostInfo.AdditionalInfo}}</view>
-        <view tt:if="{{showPlace}}" class="place-info">位置信息：{{lostInfo.PlaceDetail}}</view>
-        <view tt:if="{{showPlace}}" class="place-info">当前状态：{{statusArr[currentIndex]}}</view>
-        <view tt:if="{{currentDetail!=''}}" class="place-info">具体位置：{{currentDetail}}</view>
+        
         <textarea
             class="input-area"
             bindfocus="onTextFocus"
