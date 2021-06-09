@@ -9,12 +9,13 @@
     padding-left: 12px;
 }
 .title{
-    font-size: 20px;
-    padding-top: 16px;
+    font-size: 18px;
+    padding-top: 8px;
 
 }
-.title-container>text{
+.title-container>span{
     font-size: 14px;
+
 
 }
 .sub-title{

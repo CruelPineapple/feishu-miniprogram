@@ -1,7 +1,7 @@
 <view class="page">
     <view class="title-container">
         <view class="title">发布招领信息</view>
-        <text>感谢您的热心帮助，请填写以下表单，我们将和您一起找到失主</text>
+        <span>感谢您的热心帮助，请填写以下表单，我们将和您一起找到失主</span>
     </view>
         <view class="form">
         <picker
