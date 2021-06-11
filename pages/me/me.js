@@ -36,15 +36,20 @@ Page({
     handleDetail: function(e){
         console.log(e.currentTarget.dataset.lostid);
         console.log(e.currentTarget.dataset.ismatch);
+        let myObj={};
+        if(e.currentTarget.dataset.ismatch){
+          myObj["MatchId"]=e.currentTarget.dataset.lostid;
+        }else{
+          myObj["LostId"]=e.currentTarget.dataset.lostid
+        }
+
         tt.request({
           url: 'https://www.fengzigeng.com/api/miniapp/me', // 目标服务器url
           method: 'POST',
           header:{
             'Content-Type': 'application/x-www-form-urlencoded'
           },
-          data:{
-              'LostId':e.currentTarget.dataset.lostid
-          },
+          data:myObj,
           success: (res) => {
             console.log(res.data);
             let app=getApp();
