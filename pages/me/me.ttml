@@ -12,10 +12,10 @@
         <view class="lost-content" tt:if="{{myInfo.MyLosts==null}}">暂无</view>
         <view class="lost-tab"  tt:for="{{myInfo.MyLosts}}">
             <image  src="{{item.IsMatched==true?'../../assets/yes.png':'../../assets/no.png'}}"></image>
-            <view class="tab-info">
+            <view data-ismatch="{{item.IsMatched}}" data-lostid="{{item.LostID}}" bindtap="handleDetail" class="tab-info">
                 <view>{{item.ItemType}}</view>
                 <view class="{{item.IsMatched==true?'green':'red'}}">{{item.IsMatched==true?'已找到':'等待'}}</view>
-                <button data-ismatch="{{item.IsMatched}}" data-lostid="{{item.LostID}}" bindtap="handleDetail" type="primary" size="small" class="btn">详情</button>
+                <!-- <button   type="primary" size="small" class="btn">详情</button> -->
             </view>            
         </view>
     </view>
@@ -24,10 +24,10 @@
         <view class="lost-content" tt:if="{{myInfo.MyFounds==null}}">暂无</view>
         <view class="lost-tab"  tt:for="{{myInfo.MyFounds}}">
             <image  src="{{item.Image}}"></image>
-            <view class="tab-info">
+            <view data-ismatch="{{item.IsMatched}}" data-foundid="{{item.FoundID}}" bindtap="handleFoundDetail" class="tab-info">
                 <view>{{item.ItemType}}</view>
                 <view class="{{item.IsMatched==true?'green':'red'}}">{{item.IsMatched==true?'已找到':'等待'}}</view>
-                <button data-ismatch="{{item.IsMatched}}" data-foundid="{{item.FoundID}}" bindtap="handleFoundDetail" type="primary" size="small" class="btn">详情</button>
+                <!-- <button   type="primary" size="small" class="btn">详情</button> -->
             </view>            
         </view>
     </view>
