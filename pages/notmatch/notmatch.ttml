@@ -11,10 +11,10 @@
             <view class="sub-content"><image class="icon" src="../../assets/pos.png"></image>{{lostInfo.LostPlace1}}</view>
             <view class="sub-content" tt:if="{{lostInfo.LostPlace2!=''}}"><image class="icon" src="../../assets/pos.png"></image>{{lostInfo.LostPlace2!=''?lostInfo.LostPlace2:'无'}}</view>
             <view class="sub-content" tt:if="{{lostInfo.LostPlace3!=''}}"><image class="icon" src="../../assets/pos.png"></image>{{lostInfo.LostPlace3!=''?lostInfo.LostPlace3:'无'}}</view>
-            <view style="margin-top:12px" style="margin-top:12px">当前状态</view>
+            <view class="primary-title" style="margin-top:12px" style="margin-top:12px">当前状态</view>
             <view class="{{matched==true?'green':'red'}}">{{matched?'已找到':'未找到'}}</view>
-            <view style="margin-top:12px" style="margin-top:12px" tt:if="{{matched==false}}">操作</view>
-            <button type="primary" bindtap="handleFound" tt:if="{{matched==false}}" class="btn">自行找到了</button>
+            <view class="primary-title" style="margin-top:12px" style="margin-top:12px" tt:if="{{matched==false}}">操作</view>
+            <button style="margin-top:12px" type="primary" bindtap="handleFound" tt:if="{{matched==false}}" class="btn">自行找到了</button>
         </view>
     </view>
 </view>
