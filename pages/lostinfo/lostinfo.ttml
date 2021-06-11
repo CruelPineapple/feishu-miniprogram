@@ -10,7 +10,7 @@
             <view style="margin-top:12px" class="primary-title">详细描述</view>
             <view class="sub-content">{{lostInfo.Info}}</view>
             <view class="primary-title" tt:if="{{lostInfo.AdditionalInfo!=''}}">补充信息</view>
-            <view>{{lostInfo.AdditionalInfo}}</view>
+            <view class="sub-content">{{lostInfo.AdditionalInfo}}</view>
             <view style="margin-top:12px" tt:if="{{showPlace}}" class="primary-title">当前信息</view>
             <view class="sub-content" tt:if="{{showPlace}}"><image class="icon" src="../../assets/pos.png"></image>{{lostInfo.PlaceDetail}}</view>
             <view class="sub-content" tt:if="{{showPlace}}"><image class="icon" src="../../assets/info.png"></image>{{statusArr[currentIndex]}}</view>
