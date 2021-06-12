@@ -1,5 +1,6 @@
 #app{
     height: 100%;
+    background-color: #EFF0F1;
 }
 page{
     height: 100%;
@@ -41,7 +42,7 @@ page{
     border-top: solid;
     border-bottom: solid;
     border-width: 1px;
-    border-color: #1f2329;
+    border-color: #1f23299d;
     margin-bottom: 24px;
 }
 .info{
