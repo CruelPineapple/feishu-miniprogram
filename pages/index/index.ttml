@@ -2,6 +2,7 @@
 	<view>
 		<view class="lost-picker-container">
 			<view class="lost-picker-title">失物查询</view>
+			<image src="../../assets/help.png" class="help" bindtap="goHelp"></image>
 			<picker value="{{index}}" range="{{array}}"
     			class="picker-container0" bindchange="bindPickerChange" bindcancel="bindPickerCancel">
   				<view class="picker0">

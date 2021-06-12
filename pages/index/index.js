@@ -54,6 +54,18 @@ Page({
   lost: [],
   showList: true,
   },
+  goHelp: function(){
+    tt.openSchema({
+      schema: 'https://uestc.feishu.cn/docs/doccnSaQndJu1oicsWJmyv0Pgmf',
+      external: false,
+      success (res) {
+          console.log(`${res}`);
+      },
+      fail (res) {
+          console.log(`open fail`);
+      }
+    });
+  },
   getPlace: function(){
     let myThis=this;
     tt.request({
