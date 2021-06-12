@@ -3,7 +3,7 @@
         <view class="title">发布招领信息</view>
         <span>感谢您的热心帮助，请填写以下表单，我们将和您一起找到失主</span>
     </view>
-        <view class="form">
+    <view class="form">
         <picker
         style="margin-bottom:12px" 
         class="picker1-content"
