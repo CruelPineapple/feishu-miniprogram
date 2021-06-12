@@ -7,7 +7,8 @@
     "pages/found/found",
     "pages/lostinfo/lostinfo",
     "pages/notmatch/notmatch",
-    "pages/more/more"
+    "pages/more/more",
+    "pages/admin/admin"
   ],
   "window":{
     "backgroundTextStyle":"light",
