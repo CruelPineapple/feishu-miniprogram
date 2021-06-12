@@ -1,12 +1,15 @@
 #app{
-    height: 100%;
+    min-height: 100%;
+    background: #EFF0F1;
 }
 page{
-    height: 100%;
+    min-height: 100%;
+
 }
 .page{
     background: #EFF0F1;
     min-height: 100%;
+    padding-bottom: 12px;
 }
 .pic-container{
     /* width: 100%;
@@ -26,6 +29,7 @@ page{
     text-align: left;
     width: 90%;
     margin: 0 auto;
+    margin-top: 24px;
 }
 .primary-title{
 
