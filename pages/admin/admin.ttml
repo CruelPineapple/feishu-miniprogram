@@ -1,0 +1,28 @@
+<view class="page">
+    <view class="form">
+        <picker
+
+        class="picker1-content"
+        mode="multiSelector"
+    	bindchange="bindMultiPickerChange1"
+    	bindcolumnchange="bindMultiPickerColumnChange1"
+    	value="{{multiIndex1}}" range="{{multiArray1}}">
+            <p class="sub-title" style="margin-left:15px;font-size:20px">物品种类</p>
+  			<view class="picker1">
+                <text style="margin-left:15px">{{multiArray1[1][multiIndex1[1]]}}</text>
+                <p class="arrow"> </p>
+  			</view>
+		</picker>
+        <input class="input" placeholder="详细描述" bindinput="handelTypeDetail"></input>
+
+        <p class="sub-title" style="margin-left:15px;font-size:20px">相关图片</p>
+        <button class="submit-btn" bindtap="handleUpload" >上传图片</button>
+        <view class="img-preview">
+            <image mode="aspectFill" bindtap="handleDelImg" tt:for="{{imgPreview}}" src="{{item}}" id={{index}}></image>
+        </view>
+        <p class="sub-title" style="margin-left:15px;font-size:20px">身份信息</p>
+        <input class="input" placeholder="（可选）失主姓名" bindinput="handelIdentify"></input>
+
+        <button class="submit-btn" bindtap="submit" type="primary">提交</button>
+    </view>
+</view>
