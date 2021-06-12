@@ -6,8 +6,8 @@
     "pages/lost/index",
     "pages/found/found",
     "pages/lostinfo/lostinfo",
-    "pages/notmatch/notmatch"
-    
+    "pages/notmatch/notmatch",
+    "pages/more/more"
   ],
   "window":{
     "backgroundTextStyle":"light",
