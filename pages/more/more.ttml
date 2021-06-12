@@ -1,0 +1,15 @@
+<view class="more">
+    <view class="flex-container">
+        <image class="icon" src="../../assets/icon.png"></image>
+        <text>Lost & Found 失物招领</text>
+        <view bindtap="feedback" style="margin-top: 12px;" class="entry">用户反馈
+            <image class="arrow" src="../../assets/arrow.png"></image>
+        </view>
+        <view bindtap="admin" class="entry"> 管理员批量上传
+            <image class="arrow" src="../../assets/arrow.png"></image>
+        </view>
+        <view class="info">开发者：李尚哲，邓雯月，冯梓耕</view>
+        <view class="info">©2020 - 2021 by UESTC</view>
+        <view class="info">version：1.3</view>
+    </view>
+</view>
