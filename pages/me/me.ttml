@@ -1,6 +1,7 @@
 <view class="page">
     <view class="title-container">
         <image src="{{avatarUrl}}" class="avatar"></image>
+        <image src="../../assets/more.png" class="more" bindtap="goMore"></image>
         <view class="title-info">
             <view style="font-size:18px;margin-top:0px">{{nickName}}</view>
             <view>已经找回{{myInfo.HasFound}}件物品 帮助找到{{myInfo.HasHelped}}件物品</view>

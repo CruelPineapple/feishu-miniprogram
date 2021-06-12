@@ -64,6 +64,13 @@ page{
 .green{
     color: #34c724;
 }
+.more{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
 .btn{
     margin-top: 4px;
     height: 38px;

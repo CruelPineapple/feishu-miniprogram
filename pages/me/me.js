@@ -4,6 +4,11 @@ Page({
         avatarUrl:"",
         myInfo: undefined
     },
+    goMore:function(){
+      tt.navigateTo({
+        url: '/pages/more/more' // 指定页面的url
+      });
+    },
     handleFoundDetail: function(e){
         console.log(e.currentTarget.dataset.foundid);
         console.log(e.currentTarget.dataset.ismatch);
