@@ -52,6 +52,8 @@ Page({
       if(this.data.typeDetail==""){
         this.myAlert('尚未填写物品详情');
         return;
+      } else {
+        upForm['info']=this.data.typeDetail
       }
       if(this.data.imgPreview.length==0){
         this.myAlert('尚未上传图片');
