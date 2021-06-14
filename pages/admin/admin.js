@@ -88,6 +88,9 @@ Page({
                       data:upForm,
                       success: (res) => {
                         //init form
+                        myThis.setData({
+                          imgPreview:[],
+                        })
                         if(res.data.code==200){
                           tt.showModal({
                             title:'提示',
